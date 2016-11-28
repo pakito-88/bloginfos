@@ -4,6 +4,7 @@ namespace W\Controller;
 
 use W\Security\AuthentificationModel;
 use W\Security\AuthorizationModel;
+use \Model\SalonsModel;
 
 /**
  * Le contrôleur de base à étendre
@@ -74,6 +75,7 @@ class Controller
 		$engine->loadExtension(new \W\View\Plates\PlatesExtensions());
 
 		$app = getApp();
+		$salonsModel=new SalonsModel
 
 		// Rend certaines données disponibles à tous les vues
 		// accessible avec $w_user & $w_current_route dans les fichiers de vue
@@ -82,6 +84,7 @@ class Controller
 				'w_user' 		  => $this->getUser(),
 				'w_current_route' => $app->getCurrentRoute(),
 				'w_site_name'	  => $app->getConfig('site_name'),
+				'salons'		  => $salonsModel->findAll()
 			]
 		);
 
