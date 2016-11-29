@@ -25,26 +25,28 @@ class UserController extends BaseController
 		if(!empty($_POST)){
 
 			if (empty($_POST['mot_de_passe'])) {
-			//erreur message
+			$this->getFlashMessenger()->error('vous entrez un pseudo');
 			}
 
 			if (empty($_POST['pseudo'])) {
-			//erreur message
+			$this->getFlashMessenger()->error('vous entrez un password');
+			
 			}
-
 			$auth= new AuthentificationModel();
-			if(!empty(($_POST['mot_de_passe'])) && !empty($_POST['pseudo'])){
+
+			if (! $this->getFlashMessenger()->hasErrors()){
 
 				 $idUser = $auth->isValidLoginInfo($_POST['pseudo'],$_POST['mot_de_passe']);
 
 				 if($idUser!==0){
+
 				 	$UtilisateursModel= new UtilisateursModel ();
 				 	$userInfos= $UtilisateursModel ->find($idUser);
 				 	$auth->logUserIn($userInfos);
 
 				 	$this->redirectToRoute('default_home');
 				 }else{
-				 	// les infos de connexion sont inccorect
+				 	$this->getFlashMessenger()->error('vos infos sont incorrect');
 				 }
 			}
 		}
@@ -59,7 +61,11 @@ class UserController extends BaseController
 
 	public function logout(){
 		$auth = new AuthentificationModel();
-		$auth =logUserOut();
+		$auth ->logUserOut();
 		$this->redirectToRoute('login');
+	}
+
+	public function register(){
+		$this->show('users/register');
 	}
 }
