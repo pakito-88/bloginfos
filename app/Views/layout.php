@@ -10,6 +10,7 @@
 </head>
 <body>
 	<header>
+		<?php $fmsg->display(); ?>
 		<h1><?php echo $this->e($title); ?></h1>
 	</header>
 	<aside>
