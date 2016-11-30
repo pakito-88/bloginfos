@@ -101,7 +101,7 @@ class UserController extends BaseController
 				'sexe' => v::in(['Femme','Homme','Autre']),
 
 				"avatar" => v::optional(
-					v::image()->size('1MB')
+					v::image()->size('0','1MB')
 					->uploaded()
 				)
 			);
@@ -132,7 +132,7 @@ class UserController extends BaseController
 					$this->getFlashMessenger()->error($fullMessage);
 				}
 			}
-		}
+		
 
 		if ( !$this->getFlashMessenger()->hasErrors()){
 			//pas d erreurs on insert les données users
@@ -142,7 +142,7 @@ class UserController extends BaseController
 
 			$auth= new AuthentificationModel();
 
-			$datas ['mot_de_passe'] = $auth ->hashPassword($datas['mot_de_passe']);
+			$datas['mot_de_passe'] = $auth ->hashPassword($datas['mot_de_passe']);
 
 
 			if(!empty($_FILES['avatar']['tmp_name']) ){
@@ -150,7 +150,7 @@ class UserController extends BaseController
 				$initalAvatarPath = $_FILES['avatar']['tmp_name'];
 				$avatarNewName = md5(time().uniqid());
 
-				$targetPath = realpath('asset/uploads/');
+				$targetPath = realpath('assets/upload');
 
 				move_uploaded_file($initalAvatarPath, $targetPath.'/'.$avatarNewName);
 
@@ -176,7 +176,7 @@ class UserController extends BaseController
 
 
 		}
-
+	}
 		$this->show('users/register');
 	}
 
