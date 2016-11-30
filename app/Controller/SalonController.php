@@ -59,4 +59,15 @@ class SalonController extends BaseController
 
 
 	}
+
+	public function newsMessages($idSalon,$idMessages){
+
+
+		$messagesModel = new MessagesModel();
+
+		$messages = $messagesModel->searchAllWithUserInfo($idSalon, $idMessages);
+
+		$this-> show('salons/newmessages',array('messages' =>$messages));	
+
+	}
 }

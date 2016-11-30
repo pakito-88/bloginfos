@@ -15,7 +15,7 @@ function afficherChecked( $valeurAttendue ){
 <?php $this->start ('main_content'); ?>
 
 <h1>inscription user</h1>
-<!-- <?php $fmsg->display(); ?> -->
+
 
 	<form action="<?php $this->url('register') ?>" method="POST" enctype="multipart/form-data" >
 		<p>

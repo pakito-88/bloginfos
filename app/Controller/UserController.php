@@ -17,6 +17,8 @@ class UserController extends BaseController
 		/**
 		 * J'instancie depuis l'action du controler un modele d'utilisateurs pour pouvoir accéder à la liste des utilisateurs
 		 */
+		this-> allowTo(['admin','superadmin']);
+
 		$usersModel = new UtilisateursModel();
 		$usersList = $usersModel -> findAll();
 

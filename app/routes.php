@@ -13,4 +13,6 @@
 		['GET|POST','/login','User#login','login'],
 		['GET','/logout','User#logout','logout'],
 		['GET|POST','/register','User#register','register'],
+		//route accesible en ajax pour renvoyer des messages d'un salon posté depuis un id donné
+		['GET','/newsmessages/[i:idSalon]/[i:idMessages]','Salon#newsmessages','newsmessages'],
 	);

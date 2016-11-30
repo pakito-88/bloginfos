@@ -23,13 +23,18 @@
 					foreach ($salons as $salon): ?>
 					<li> <a href="<?php echo $this->url('see_salon', array('id'=>$salon['id'] )) ?>"> <?php echo $this -> e($salon['nom']); ?></a></li>
 				<?php endforeach; ?> 
+				<?php if(in_array($w_user['role'],['admin','superadmin'])): ?>
 
 			<li>
 				<a class="button" href="<?php echo $this->url('users_list') ?>" title="Liste des utilisateurs">Liste des utilisateurs</a>
 			</li>
-
+			<?php endif; ?>
 			<li>
-				<a class="button" href="<?php echo $this->url('logout') ?>">Se deconnecter de t-chat</a>
+				<?php if ($w_user): ?>
+				<a class="button" href="<?php echo $this->url('logout') ?>">Deconnection !</a>
+				<?php else: ?>
+				<a class="button" href="<?php echo $this->url('login') ?>" title="">Connection !</a>
+			<?php endif; ?>
 			</li>
 			</ul>
 		</nav>
@@ -49,5 +54,11 @@
 	</script>
 
 	<script type="text/javascript" src="<?php echo $this->assetUrl('js/close-flash-messages.js') ?>"></script>
+
+	<?php  $sectionJavascripts =$this->section('javascripts');
+		if(!empty($sectionJavascripts)){
+			echo $sectionJavascripts;
+			} 
+	?>
 </body>
 </html>

@@ -107,6 +107,10 @@ form input, form textarea {
 
 .messages {
 	margin: 0px;
+	padding: 0;
+	flex:1;
+	overflow-y: scroll;
+	height: calc(100vh - 187px);
 }
 
 .messages li {
@@ -138,4 +142,18 @@ form input, form textarea {
 .form-message input[type="submit"] {
 	border-radius: 0;
 	width: 90px;
+}
+
+span.avatar{
+	width: 5rem;
+	height: 5rem;
+    border-radius: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+span.avatar img{
+	display: block;
+	max-width: 100%;
 }
