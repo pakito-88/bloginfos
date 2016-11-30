@@ -20,7 +20,7 @@
 		</p>
 		<p>
 			<input type="submit" class="button" value="Me connecter"/>
-			<a href="inscription.php" title="Acceder a la page d inscription "?>Pas encore inscrit ?</a>
+			<a href="<?php $this->url('register') ?>" title="Acceder a la page d inscription "?>Pas encore inscrit ?</a>
 		</p>
 
 	</form>
