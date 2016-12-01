@@ -1,6 +1,6 @@
 ## W
 
-petit test de modif 
+petit test de modif
 
 W est un framework minimaliste. Il suit les structures et les grand thèmes des frameworks PHP OO MVC actuels, tout en en facilitant l'approche. 
 

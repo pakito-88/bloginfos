@@ -1,14 +1,14 @@
 {
-    "name": "webforce3/w",
-    "description": "la version w du projet T chat",
+    "name": "t-chat-w",
+    "description": "Le version W du projet tchat",
     "version": "1.0.0",
     "minimum-stability": "dev",
     "license": "MIT",
     "prefer-stable": true,
     "authors": [
         {
-            "name": "sebastien",
-            "email": "seb@gmail.com",
+            "name": "Thibault Truffert",
+            "email": "thibaulttruffert@hotmail.com",
             "role": "Lead Developer"
         }
     ],

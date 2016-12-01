@@ -2,9 +2,7 @@
 
 namespace Controller;
 
-
-
-class testController extends BaseController
+class TestController extends BaseController
 {
 
 	/**

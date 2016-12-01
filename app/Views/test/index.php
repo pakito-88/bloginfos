@@ -1,7 +1,8 @@
-<?php $this->layout('layout', ['title' => 'de Sebastien ']) ?>
+<?php $this->layout('layout', ['title' => 'Test']); ?>
 
-<?= $this->start('main_content') ?>
+<?php $this->start('main_content'); ?>
 
-<h2>Hello TEST !</h2>
+Hello test !!
 
-<?= $this->stop('main_content') ?>
+<?php $this->stop('main_content'); ?>
+
