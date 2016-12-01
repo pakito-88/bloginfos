@@ -214,6 +214,7 @@ class UserController extends BaseController
 				unset($datas['send']);
 				
 				if($user) {
+					// Update user set ... where id=
 					$utilisateursModel->update($datas, $user['id']);
 					$auth = new AuthentificationModel();
 					$this->getFlashMessenger()->success('Vous avez bien mis à jour votre profil');
