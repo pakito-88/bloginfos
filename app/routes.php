@@ -14,4 +14,6 @@
 		// messages d'un salon qui ont été posté depuis un id donné
 		['GET', '/newmessages/[i:idSalon]/[i:idMessage]', 'Salon#newMessages', 'new_messages'],
 		['GET|POST', '/salon/add', 'Salon#addSalon', 'add_salon'],
+
+		['GET', '/categories', 'Categorie#listCategories', 'categories_list']
 );
