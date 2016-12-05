@@ -1,9 +1,8 @@
-
 <?php
-	// quand on essaye d'accéder à localhost/t-chat/public/
-	// l'url qui est réellement reçu est : localhost/t-chat/index.php/
+	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
+<<<<<<< HEAD
 		['GET', '/users', 'User#listUsers', 'users_list'],
 		['GET|POST', '/salon/[i:id]', 'Salon#seeSalon', 'see_salon'],
 		['GET|POST', '/login', 'User#login', 'login'],
@@ -17,3 +16,6 @@
 
 		['GET', '/categories', 'Categorie#listCategories', 'categories_list']
 );
+=======
+	);
+>>>>>>> bbb96092efd94dfd4ded7b5af6846fb4103cd6ec
