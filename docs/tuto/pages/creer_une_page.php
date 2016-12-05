@@ -87,10 +87,10 @@ class DefaultController extends \W\Controller\Controller
 
 <p>W utilise <a href="http://platesphp.com/" title="Plates">Plates</a>, un moteur de template en PHP, inspiré de <a href="http://twig.sensiolabs.org/" title="Twig">Twig</a>.</p>
 
-<p>Pour créer un nouveau template, il suffit créer un fichier php dans le dossier <span class="code">app/templates/</span>. Par convention, on place toutefois ces fichiers dans un sous-dossier portant le nom du contrôleur (ie. dossier <span class="code">templates/admin/</span> pour les templates du contrôleur <span class="code">AdminController</span>).</p>
+<p>Pour créer un nouveau template, il suffit créer un fichier php dans le dossier <span class="code">app/Views/</span>. Par convention, on place toutefois ces fichiers dans un sous-dossier portant le nom du contrôleur (ie. dossier <span class="code">Views/admin/</span> pour les templates du contrôleur <span class="code">AdminController</span>).</p>
 
 <pre><code>&lt;?php 
-//hérite du fichier layout.php à la racine de app/templates/
+//hérite du fichier layout.php à la racine de app/Views/
 $this-&gt;layout('layout')
 ?&gt;
 
