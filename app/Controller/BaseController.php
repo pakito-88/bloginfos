@@ -27,7 +27,7 @@ class BaseController extends Controller
 		$this->engine = new \League\Plates\Engine(self::PATH_VIEWS);
 		
 		//charge nos extensions (nos fonctions personnalisées)
-		$this->engine->loadExtension(new \W\View\Plates\PlatesExtensions());
+		$this->engine->loadExtension(new\W\View\Plates\PlatesExtensions());
 
 		$app = getApp();
 
