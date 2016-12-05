@@ -15,7 +15,7 @@
 
 <h3>Les CSS, les JS et les images</h3>
 <p>Tous les fichiers publics de votre application (<em>publics</em> dans le sens que vous considérez qu'un internaute doit pouvoir l'afficher directement dans son navigateur) doivent se trouver dans le dossier <span class="code">web/</span>. Autrement, le navigateur n'y aura tout simplement pas accès. Ainsi, vos fichiers .css, .js et vos images (souvent nommés <em>assets</em>) devront nécessairement y être placés.</p>
-<p>En fait, W prend pour acquis que ces fichiers seront dans le sous-répertoire <span class="code">web/assets/</span>, afin de ranger plus finement ce dossier <span class="code">web/</span>.</p>
+<p>En fait, W prend pour acquis que ces fichiers seront dans le sous-répertoire <span class="code">public/assets/</span>, afin de ranger plus finement ce dossier <span class="code">web/</span>.</p>
 <p>À l'exception de cette convention, vous faites vos styles et votre JavaScript comme dans toutes applications classiques : W est un framework back-end, et ne se préoccuppe pas de ce que vous faites côté client.</p>
 
 <h3>Les méthodes PHP disponibles</h3>
