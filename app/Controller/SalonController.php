@@ -19,6 +19,9 @@ class SalonController extends BaseController
 		$salonsModel = new SalonsModel();
 		$salon = $salonsModel->find($id);
 		
+
+		/*Récuperer les articles en fonction de la catégorie id_categorie*/
+
 		/*
 		 * On instancie le modèles des messages pour récupérer les messages du
 		 * salon dont l'id est $id
