@@ -1,6 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Liste des articles']) ?>
 
 <?php $this->start('main_content');?>
+
 <ul>
 	<?php foreach ($articlesList as $article) : ?>
 
