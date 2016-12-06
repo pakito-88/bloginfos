@@ -10,5 +10,4 @@
 	<?php endforeach; ?>
 </ul>
 
-
 <?php $this->stop('main_content');?>
