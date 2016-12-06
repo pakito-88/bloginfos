@@ -27,11 +27,11 @@ class BaseController extends Controller
 		$this->engine = new \League\Plates\Engine(self::PATH_VIEWS);
 		
 		//charge nos extensions (nos fonctions personnalisées)
-		$this->engine->loadExtension(new\W\View\Plates\PlatesExtensions());
+		$this->engine->loadExtension(new \W\View\Plates\PlatesExtensions());
 
 		$app = getApp();
 
-		$salonsModel = new SalonsModel();
+		
 		$this->fmsg = new FlashMessages();
 		// Rend certaines données disponibles à tous les vues
 		// accessible avec $w_user & $w_current_route dans les fichiers de vue
@@ -40,7 +40,6 @@ class BaseController extends Controller
 				'w_user' 		  => $this->getUser(),
 				'w_current_route' => $app->getCurrentRoute(),
 				'w_site_name'	  => $app->getConfig('site_name'),
-				'salons'		  => $salonsModel->findAll(),
 				'fmsg'			  => $this->getFlashMessenger()
 			]
 		);

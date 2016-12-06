@@ -1,40 +1,27 @@
 <?php
 
-namespace Controller;
+namespace Controller; 
 
-use Model\SalonsModel;
-use Model\MessagesModel;
+use \W\Controller\Controller;
+use Model\CommentsModel;
 
 
-class CommentController extends BaseController
+class CommentController extends Controller 
 {
-	
-	public function newComment($idArticle, $idComment) {
-		$commentModel = new CommentModel();
 
+	public function seeComment($id){
+		$commentsModel = new CommentsModel();
+		$comment = $commentsModel->find($id);
+		var_dump($comment);
 
+		$this->show('comments/see', array('comment'=>$comment));
 
-
-
-
-
-		$messagesModel = new MessagesModel();
-		
-		$messages = $messagesModel->searchAllWithUserInfos($idSalon, $idMessage);
-		
-		$this->show('salons/newmessages', array('messages' => $messages));
 	}
-	
-	public function addSalon() {
-		$this->allowTo(['utilisateur','admin','superadmin']);
-		if(!empty($_POST['nom'])) {
-			$salonModel = new SalonsModel();
-			$datas = array('nom' => $_POST['nom']);
-			$salon = $salonModel->insert($datas);
-			$this->redirectToRoute('see_salon', array('id'=> $salon['id']));
-		} 
-		
-		$this->show('salons/add-salon');
-	}
+
+
+
+
+
+
 
 }

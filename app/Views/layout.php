@@ -10,6 +10,7 @@
 	<div class="container">
 		<header>
 			<h1>W :: <?= $this->e($title) ?></h1>
+		
 		</header>
 
 		<section>
@@ -21,4 +22,3 @@
 	</div>
 </body>
 </html>
-
