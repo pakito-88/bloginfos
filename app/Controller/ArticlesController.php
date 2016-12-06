@@ -2,22 +2,50 @@
 
 namespace Controller;
 
-use \W\Controller\Controller;
+use W\Controller\Controller;
 use Model\ArticlesModel;
+use Model\CategoriesModel;
 
 class ArticlesController extends Controller
 {
 
 	/**
-	* Cette fonction sert à afficher la liste des articles
+	* Cette fonction sert à afficher la liste des articles et la liste des catégories
+	* Elle sert également à insérer un article en BDD
 	*/
 	public function articlesList() {
 
 		$articlesModel = new ArticlesModel();
-
 		$articlesList = $articlesModel->findAll();
 
-		$this->show('articles/list', array('articlesList' => $articlesList));
+		$categoriesModel = new CategoriesModel();
+		$categoriesList = $categoriesModel->findAll();
+
+
+		if(!empty($_POST)) {
+			$articlesModel = new articlesModel();
+			$datas = array(
+				'title' => $_POST['title'],
+				'content' => $_POST['content'],
+				'author' => $_POST['author'],
+				'id_category' => $_POST['id_category'],
+				'creation_date' => date('Y-m-d H:i:s'),
+				'id_user' => 1,
+				);
+
+			$article = $articlesModel->insert($datas);
+
+			$this->redirectToRoute('articles_list');
+		}
+
+
+		$this->show(
+			'articles/list', 
+			array(
+				'articlesList' => $articlesList,
+				'categoriesList' => $categoriesList
+			)
+		);
 	}
 
 
@@ -35,4 +63,19 @@ class ArticlesController extends Controller
 
 		$this->show('articles/see', array('article' => $article));
 	}
+
+
+
+	public function deleteArticle($id) {
+
+		$articlesModel = new ArticlesModel();
+
+		$deletedArticle = $articlesModel->delete($id);
+
+		$this->redirectToRoute('articles_list');
+
+		$this->show('articles/deleteArticle', array('deletedArticle' => $deletedArticle));
+	}
+
+
 }
