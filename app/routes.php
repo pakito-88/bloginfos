@@ -4,6 +4,7 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		['GET|POST', '/articles-admin', 'Articles#articlesList', 'articles_list'],
+
 		['GET', '/article/[i:id]', 'Articles#seeArticle', 'see_article'],
 		['GET', '/suppression/article/[i:id]', 'Articles#deleteArticle', 'delete_article'],
 

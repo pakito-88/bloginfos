@@ -13,23 +13,26 @@
 		<th>Actions</th>
 	</tr>
 
-	<?php foreach ($articlesList as $article) :?>
+
+	<?php foreach ($categoriesArticle as $category) :?>
 	<tr>
-		<td><?php echo $article['title'] ?></td>
-		<td><a href="<?php echo $this->url('see_article', array('id'=>$article['id']))?>">Lire l'article</a></td>
-		<td><?php echo $article['author'] ?></td>
-		<td><?php echo $article['id_category']; ?></td>
-		<td><?php echo $article['creation_date']; ?></td>
+		<td><?php echo $category['title'] ?></td>
+		<td><a href="<?php echo $this->url('see_article', array('id'=>$category['id']))?>">Lire l'article</a></td>
+		<td><?php echo $category['author'] ;?></td>
+		<td><?php echo $category['id_category'] . '-' . $category['name'];;?></td>
+
+
+
+		<td><?php echo $category['creation_date']; ?></td>
 		<td>
-			<?php if($article['id_user'] != null) { ?>
-				<?php echo $article['id_user'] ?>
+			<?php if($category['id_user'] != null) { ?>
+				<?php echo $category['id_user'] ?>
 			<?php } else { echo 0; }?>
 		</td>
 
 
-		<td><a href="<?php echo $this->url('delete_article', array('id'=>$article['id'])) ?>">Supprimer</a></td>
+		<td><a href="<?php echo $this->url('delete_article', array('id'=>$category['id'])) ?>">Supprimer</a></td>
 	</tr>
-	<!-- <li><a href="<?php //echo $this->url('see_article', array('id'=>$article['id']))?>"><?php //echo $article['title'] ?></a></li> -->
 	<?php endforeach; ?>
 </table>
 
@@ -66,4 +69,3 @@
 </form>
 
 <?php $this->stop('main_content');?>
-

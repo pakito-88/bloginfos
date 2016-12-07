@@ -39,11 +39,15 @@ class ArticlesController extends Controller
 		}
 
 
+		$categoriesArticle = $articlesModel->searchCategoryWithArticle();
+
+
 		$this->show(
 			'articles/list', 
 			array(
 				'articlesList' => $articlesList,
-				'categoriesList' => $categoriesList
+				'categoriesList' => $categoriesList,
+				'categoriesArticle' => $categoriesArticle
 			)
 		);
 	}
