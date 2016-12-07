@@ -2,13 +2,42 @@
 
 <?php $this->start('main_content'); ?>
 
-<li>  <?php echo $this->e($comment['content']); ?> </li>
+<style>
+	th, td{
+		width: 7rem;
+		text-align: center;
+	}
+</style>
 
-<form action="<?php echo $this->url('add_comment') ?>" method="post">
-	<label for="content"> Nouveau commentaire : </label>
-	<input type="text" name="content" id="content"/>
-	<input type="submit" name="send" value="Ajouter"/>
-</form>
+<table>
+	<tr>
+		<th> ID </th>
+		<th> Contenu</th>
+		<th> ID User </th>
+		<th> ID Article </th>
+		<th> Nom Article </th>
+		<th> Date de création </th>
+		<th> Date de modification </th>
+		<th> Modifier </th>
+		<th> Supprimer</th>
+	</tr>
+</table>
+
+<table>
+	<?php foreach ($commentsList as $comment) :?>
+	<tr>
+		<td><?php echo $comment['id']; ?></td>
+		<td><?php echo $comment['content']; ?></td>
+		<td><?php echo $comment['id_user']; ?></td>
+		<td><?php echo $comment['id_article']; ?></td>
+		<td><?php echo $comment['title']; ?></td>
+		<td><?php echo $comment['creation_date']; ?></td>
+		<td><?php echo $comment['modification_date']; ?></td>
+		<td> <a href=""> Modifier  </a></td>
+		<td> <a href=""> Supprimer  </a> </td>
+	</tr>
+	<?php endforeach; ?>
+</table>
 
 
 <?php $this->stop('main_content'); ?>	

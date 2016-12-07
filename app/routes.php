@@ -1,17 +1,17 @@
 <?php
 	
 	$w_routes = array(
-		//  GET OU POST, chemin, Controller#Methode, nom de la route
+		//  GET OU POST, chemin à partir de public, Controller#Methode, nom de la route
 		['GET', '/', 'Default#home', 'default_home'],
 
-		// Route pour voir les commentaires 
-		['GET', '/articles/[i:id]', 'Comment#seeComment', 'see_comment'],
+		// Route pour afficher la liste des commentaires
+		['GET|POST', '/comments/list', 'Comment#CommentsList', 'comments_list'],
 		
-		// Route pour ajouter un commentaire 
-		['GET|POST', '/articles/add', 'Comment#addComment', 'add_comment'],
 
-		
+		// Route pour voir / ajouter les commentaires 
+		['GET|POST', '/comments/[i:id]', 'Comment#seeComments', 'see_comment'],
+	
 		['GET', '/articles', 'Articles#articlesList', 'articles_list'],
-		['GET', '/articles/[i:id]', 'Articles#seeArticle', 'see_article'],
+		['GET', '/articles/[i:id]', 'Articles#seeArticle', 'see_article'],	
 
 	);

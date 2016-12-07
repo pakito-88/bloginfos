@@ -13,11 +13,13 @@ use \W\Model\Model;
 
 class CommentsModel extends Model {
 	public function searchAllWithUserInfos($idArticle, $idComment=null) {
-		$query = "SELECT comments.*, users.pseudo, users.avatar"
+		$query = "SELECT comments.*, users.pseudo, users.avatar, articles.title"
 		." FROM $this->table"
 		." JOIN articles on $this->table.id_article = articles.id"
 		." JOIN users on $this->table.id_user = users.id"
 		." WHERE articles.id = :id_article";
+
+		var_dump($query);
 
 
 		$ifCommentExists = $idComment !== null && ctype_digit($idComment);
@@ -35,6 +37,25 @@ class CommentsModel extends Model {
 				
 		$statement->execute();
 		return $statement->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function bindIdCommentWithIdArticle(){
+		$query = "SELECT comments.*, users.pseudo, users.avatar, articles.title"
+		." FROM $this->table"
+		." JOIN articles on $this->table.id_article = articles.id"
+		." JOIN users on $this->table.id_user = users.id";
+		var_dump($query);
+
+		// "SELECT * FROM $this->table JOIN articles on $this->table.id_article=articles.id";
+		
+		$statement = $this->dbh->prepare($query);
+		$statement->execute();
+		return $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+		
+
+
+
 	}
 
 }

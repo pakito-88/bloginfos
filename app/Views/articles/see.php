@@ -19,7 +19,8 @@
 	</li>
 <?php endforeach; ?>
 
-<form action="<?php echo $this->url('add_comment', array($this->$article['id'])) ?>" method="post">
+<form action="<?php echo $this->url('add_comment') ?>" method="post">
+	
 	<label for="content"> Nouveau commentaire : </label>
 	<input type="text" name="content" id="content"/>
 	<input type="submit" name="send" value="Envoyer"/>

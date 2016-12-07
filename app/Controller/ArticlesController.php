@@ -16,6 +16,7 @@ class ArticlesController extends Controller
 		$articlesModel = new ArticlesModel();
 
 		$articlesList = $articlesModel->findAll();
+		var_dump($articlesList);
 
 		$this->show('articles/list', array('articlesList' => $articlesList));
 	}
@@ -35,4 +36,30 @@ class ArticlesController extends Controller
 
 		$this->show('articles/see', array('article' => $article));
 	}
+
+	public function searchAllWithUserInfos($idArticle, $idComment=null) {
+		$query = "SELECT comments.*, users.pseudo, users.avatar"
+		." FROM $this->table"
+		." JOIN articles on $this->table.id_article = articles.id"
+		." JOIN users on $this->table.id_user = users.id"
+		." WHERE articles.id = :id_article";
+
+
+		$ifCommentExists = $idComment !== null && ctype_digit($idComment);
+		if($ifCommentExists) {
+			$query .= ' AND comments.id > :id_comment';
+		}	
+
+		$statement = $this->dbh->prepare($query);
+		$statement -> bindParam(':id_article', $idArticle, \PDO::PARAM_INT); 
+
+
+		if($ifCommentExists) {
+			$statement->bindParam(':id_comment', $idComment, \PDO::PARAM_INT);
+		}
+				
+		$statement->execute();
+		return $statement->fetchAll(\PDO::FETCH_ASSOC);
+	}
+	
 }
