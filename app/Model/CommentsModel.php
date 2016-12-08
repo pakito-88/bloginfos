@@ -19,9 +19,6 @@ class CommentsModel extends Model {
 		." JOIN users on $this->table.id_user = users.id"
 		." WHERE articles.id = :id_article";
 
-		var_dump($query);
-
-
 		$ifCommentExists = $idComment !== null && ctype_digit($idComment);
 		if($ifCommentExists) {
 			$query .= ' AND comments.id > :id_comment';
@@ -44,7 +41,6 @@ class CommentsModel extends Model {
 		." FROM $this->table"
 		." JOIN articles on $this->table.id_article = articles.id"
 		." JOIN users on $this->table.id_user = users.id";
-		var_dump($query);
 
 		// "SELECT * FROM $this->table JOIN articles on $this->table.id_article=articles.id";
 		

@@ -5,11 +5,18 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		// Route pour afficher la liste des commentaires
-		['GET|POST', '/comments/list', 'Comment#CommentsList', 'comments_list'],
+		['GET', '/comments/list', 'Comment#CommentsList', 'comments_list'],
+		
+		// Route pour ajouter les commentaires 
+		['GET|POST', '/comments/edit', 'Comment#editComments', 'add_comment'],
+		
+		// Route pour modifier les commentaires
+		['GET|POST', '/comments/edit/[i:id]', 'Comment#editComments', 'update_comment'],
 		
 
-		// Route pour voir / ajouter les commentaires 
-		['GET|POST', '/comments/[i:id]', 'Comment#seeComments', 'see_comment'],
+		// Route pour supprimer un commentaire
+		['GET|POST', '/comments/delete/[i:id]', 'Comment#deleteComment', 'delete_comment'],
+
 	
 		['GET', '/articles', 'Articles#articlesList', 'articles_list'],
 		['GET', '/articles/[i:id]', 'Articles#seeArticle', 'see_article'],	
