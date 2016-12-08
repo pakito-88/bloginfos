@@ -14,6 +14,7 @@
 
 		<section>
 			<?= $this->section('main_content') ?>
+			<?php $fmsg->display(); ?>
 		</section>
 
 		<footer>
