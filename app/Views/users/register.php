@@ -38,7 +38,7 @@ function afficherCheck( $valeurAttendue ,$datas) {
 	<p>
 		<label for="femme">Femme :</label>
 		<select name="sexe">
-			<option value="femme" <?php afficherCheck('femme',$datas); ?>>Femme</option>
+			<option value="femme" <?php afficherCheck('femme',$datas); ?> >Femme</option>
 			<option value="homme" <?php afficherCheck('homme',$datas); ?>>Homme</option>
 		</select>
 	</p>
@@ -51,5 +51,5 @@ function afficherCheck( $valeurAttendue ,$datas) {
 		<input type="submit" name="send" value="<?php if(!$w_user):  ?>S'inscrire<?php else: ?>Modifier<?php endif; ?>" />
 	</p>
 </form>
-<?php var_dump($w_user); ?>
+<?php var_dump($w_user['status']); ?>
 <?php $this->stop('main_content'); ?>

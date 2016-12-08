@@ -1,7 +1,8 @@
 html, body {
-	font-family: Consolas, monaco, monospace;
-	background-color: #272822;
+	
+	background-color: black;
 	color: #F8F8F2;
+	
 }
 
 .container {
@@ -18,9 +19,11 @@ a:hover {
 }
 
 h1 {
-	color: #F92672;
+	color: white;
+	
 }
 
 h2 {
 	color: #66D9EF;
 }
+
