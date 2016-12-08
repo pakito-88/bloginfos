@@ -58,7 +58,7 @@ public function listUsers() {
 					$auth->logUserIn($userInfos);
 					
 					// une fois l'utilisateur connecté, je le redirige vers l'accueil
-					$this->getFlashMessenger()->success('Vous vous êtes connecté avec succès !');
+					
 					$this->redirectToRoute('default_home');
 				} else {
 					// les infos de connexion sont incorrectes, on avertit 
@@ -74,7 +74,7 @@ public function listUsers() {
 	public function logout() {
 		$auth = new AuthentificationModel();
 		$auth->logUserOut();
-		$this->redirectToRoute('login');
+		$this->redirectToRoute('default_home');
 	}
 	
 	public function register() {
@@ -118,7 +118,7 @@ public function listUsers() {
 					->noWhiteSpace()
 					->setName('Mot de passe'),
 				
-				'sexe' => v::in(array('femme', 'homme', 'non-défini'))
+				'sexe' => v::in(array('femme', 'homme'))
 					->setName('Sexe'),
 				
 				'avatar' => v::optional(
@@ -219,7 +219,7 @@ public function listUsers() {
 						$this->getFlashMessenger()->warning('Nous n\'avons pas été en mesure de vous reconnecter');
 					}
 				} else {
-					$this->getFlashMessenger()->success('Vous vous êtes bien inscrit à T\'Chat !');
+					$this->getFlashMessenger()->success('Vous vous êtes bien inscrit à Bloginfos!');
 					$userInfos = $UserModel->insert($datas);
 					$auth->logUserIn($userInfos);
 				}

@@ -11,7 +11,26 @@
 		<header>
 			<h1>Bloginfos <?= $this->e($title) ?></h1>
 		</header>
-
+		<li>
+						<?php if($w_user): ?>
+						<a class="button" 
+						   href="<?php echo $this->url('logout'); ?>" 
+						   title="Se déconnecter de Bloginfos">
+							Déconnexion	
+						</a>
+						<a class="button" 
+						   href="<?php echo $this->url('register'); ?>" 
+						   title="Modifier son profil Bloginfos">
+							Profil
+						</a>
+						<?php else : ?>
+						<a class="button" 
+						   href="<?php echo $this->url('login') ?>" 
+						   title="Accéder au formulaire de connexion">
+							Connexion
+						</a>
+						<?php endif; ?>
+					</li>
 		<section>
 			<?php $fmsg->display(); ?>
 			<?= $this->section('main_content') ?>
@@ -31,5 +50,6 @@
 			}
 		?>
 	</div>
+
 </body>
 </html>
