@@ -12,7 +12,7 @@
 			<br>
 			<br>
 		
-			<!-- <aside >
+			 <aside >
 				
 					<form class="forminscription" action="" method="post" target="">
 				<p>Ajouter un article : </p>
@@ -22,7 +22,7 @@
 
 				 	<button>
 				 	
-				 	<a href="<?php //echo $this->url('login'); ?>" > ajouter</a>
+				 	<a href="<?php echo $this->url('login'); ?>" > ajouter</a>
 
 				 	</button>
 
@@ -40,7 +40,7 @@
 				 	<input class="inputinscription" type="text" style="" name="email">
 				 	<button>
 				 	
-				 	<a href="<?php //echo $this->url('login'); ?>" > Inscription</a>
+				 	<a href="<?php echo $this->url('login'); ?>" > Inscription</a>
 
 				 	</button>
 
@@ -48,7 +48,7 @@
 
 				<input type="submit" value="Validez"> 
 
-				 	</form>-->
+				 	</form>
 
 
 			</aside> 

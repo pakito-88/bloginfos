@@ -25,6 +25,11 @@ body{
 
 /*Liens et Titres : */
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 header a{
 	color: white;
 	text-decoration: none;
@@ -37,11 +42,6 @@ header a{
 a:hover{
 	color: #2B2C36;
 	background-color: white;
-}
-
-a {
-    color: grey;
-    text-decoration: none;
 }
 
 h1, span{
@@ -64,7 +64,10 @@ h2{
     line-height: 2.8em;
 
 }
-
+h3{
+        color: white;
+       
+    }
 h4{
         font-weight: bold;
     line-height: 5rem;
@@ -306,14 +309,14 @@ img{
 /*configurer les articles*/
 article{
     /*aligner les articles sur une ligne*/
-    display: inline-block;
+   display: inline-block;
 
     /*on rajoute un alignement verticale "vertical align: top " car le inline block lorsque l'on réduit le texte il réduit egalement le bloque en entier, et il réduit la table vers le haut du coup pour que la table se réduit vers le bas on rajoute alignement verticale Pour que la table reste inchanger  que le texte soit court ou long on on rajoute la balise min-height */
 
     vertical-align: top; 
 
     /*réduire la taille des articles*/
-    width: 23.34%;
+  width: 23.34%;
 
 
     /*Ajouter une marge extérieure à droite*/
@@ -347,7 +350,7 @@ p{
     /*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
     text-indent: 1.5rem;
     text-align: justify;
-    color: black;
+
     /*ici on fait une marge entre les paragraphes et le "more"*/
 }
 
@@ -419,14 +422,14 @@ footer{
    
     background-color: #8c2525;
     color: white;
-    padding: 2rem 2rem 8rem 2rem;
+    padding: 2.9rem 2rem 8rem 2rem;
     /*position: absolute;*/
     font-size: 1.2rem;
     bottom: 0%;
     left: 0%;
     width: 100%;
+  
 }
-
 
 
 
@@ -450,11 +453,11 @@ footer aside {
 footer article:nth-child(1) a {
     display: inline-block;
     position: relative;
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     border: .1rem solid white;
     height: 2rem;
     width: 2rem;
-    padding: .5rem;
+    padding: 1.2rem;
     margin: .5rem;
     
     -webkit-border-radius: 50%;
@@ -494,7 +497,7 @@ footer article .fa{
 }
 
 .dribbble:hover{
-     background-color: #0077b5;
+     background-color: #e44c87;
     color: white;
 }
 
@@ -548,53 +551,122 @@ footer article .fa{
 }
 
 
+/*----------------traitement du formulaire inscription fichier register............*/
+
+/*reglage du titre*/
+.registertitre{
+    text-align: left;
+}
+
+/*gestion du formulaire inscription (fichier register)*/
+
+.formregister{
+    background-color: rgba(53, 52, 52, 0.43);
+    padding-top: 10rem;
+    padding-left: 1rem;
+    max-width: 60rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+}
 
 
+.submitregister{
+    background-color: #8c2525;
+    color: white;
+    padding: 1rem;
+}
 
+.inputavatarregister{
+     background-color: white;
+     font-size: 1.1rem;
+}
+
+
+    /*reglage du positionnement du titre */
+    .registertitre{
+    text-align: center;
+    }
 /*-------------------------------------------------------------*/
 
+/*Requètes media pour la version pc*/
+@media screen and (min-width: 350px){
 
+    footer{
+        padding: 6.5rem 2rem 8rem 2rem;
+    }
+}
 
 /*Requètes media pour la version pc*/
 @media screen and (min-width: 750px){
 
 
-    /*nav du header */
-    ul{
-        display: inline-block;
-    }
+        /*nav du header */
+        ul{
+            display: inline-block;
+        }
 
-    li{
-        display: inline-block;
+        li{
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+        font-size: 2rem;
+
+        }
+
+        #burgerBtn{
+            display: none;
+        }
+
+
+        nav{
+            margin-top: -7rem;
+        }
+
+        /*modification du formulaire login version pc*/
+        .formconnection {
+        background-color: rgba(53, 52, 52, 0.43);
+     
+        padding-top: 10rem;
+        padding-left: 6rem;
+        max-width: 60rem;
+        border-color: #8c2525;
+        border-radius: 10px 10px 10px 10px;
+        border-style: solid;
+       
+        }
+
+
+
+        /*reglage du positionnement du titre en format tablette*/
+        .registertitre{
         text-align: center;
-        font-weight: bold;
-    font-size: 2rem;
+        }
 
+       .formregister {
+        margin-left: 35%;
+        margin-right: 11%;
+    }
+    
+
+    /*modification des tailles des icones du footer*/
+    footer article:nth-child(1) a {
+    display: inline-block;
+    position: relative;
+    font-size: 1.7rem;
+    border: .1rem solid white;
+    height: 2rem;
+    width: 2rem;
+    padding: 2.2rem;
+    margin: .5rem;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
     }
 
-    #burgerBtn{
-        display: none;
+    h3{
+        color: white;
+        font-size: 2rem;
     }
-
-
-    nav{
-        margin-top: -7rem;
-    }
-
-    /*modification du formulaire login version pc*/
-    .formconnection {
-    background-color: rgba(53, 52, 52, 0.43);
- 
-    padding-top: 10rem;
-    padding-left: 6rem;
-    max-width: 60rem;
-    border-color: #8c2525;
-    border-radius: 10px 10px 10px 10px;
-    border-style: solid;
-   
-    }
-
-
 
 }
 
@@ -623,6 +695,11 @@ footer article .fa{
     border-color: white;
     
 }
+
+
+  .registertitre{
+    text-align: center;
+    }
 
 
 
