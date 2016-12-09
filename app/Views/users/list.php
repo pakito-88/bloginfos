@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Liste des utilisateurs bloginfos']) ?>
+<?php $this->layout('layoutBo', ['title' => 'Liste des utilisateurs bloginfos']) ?>
 
 <?php $this->start('main_content'); ?>
 
