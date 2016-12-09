@@ -7,6 +7,7 @@ use W\Model\Model;
 class ArticlesModel extends Model
 {
 
+<<<<<<< HEAD
 	/**
 	* Cette fonction sélectionne la catégorie qui correspond à l'article
 	* $id est l'id de l'article dont on souhaite récupérer la catégorie
@@ -24,5 +25,8 @@ class ArticlesModel extends Model
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 	}
+=======
+
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 
 }

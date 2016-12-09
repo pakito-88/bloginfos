@@ -2,6 +2,7 @@
 	
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
+<<<<<<< HEAD
 		['GET', '/BackOffice','Default#statistique', 'statistique'],
 		
 
@@ -48,3 +49,13 @@
 		['GET', '/categorie', 'Categories#categoriesList', 'categories_list'],
 		['GET', '/categorie/[i:id]', 'Categories#seeCategory', 'see_category']
 		);
+=======
+
+		['GET|POST', '/articles-admin', 'Articles#articlesList', 'articles_list'],
+		['GET', '/article/[i:id]', 'Articles#seeArticle', 'see_article'],
+		['GET', '/suppression/article/[i:id]', 'Articles#deleteArticle', 'delete_article'],
+
+		['GET', '/categories', 'Categories#categoriesList', 'categories_list'],
+		['GET', '/categorie/[i:id]', 'Categories#seeCategory', 'see_category']
+	);
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $this->layout('layout', ['title' => $this->e($category['name'])]) ?>
 
 <?php $this->start('main_content');?>
@@ -15,4 +16,20 @@
 	        </article>
 		<?php endforeach; ?>
 	</section>
+=======
+<?php $this->layout('layout', ['title' => 'Liste des articles d\'une catégorie']) ?>
+
+<?php $this->start('main_content');?>
+
+<h2 class="title"><?php echo $this->e($category['name']); ?> : </h2>
+
+<ul>
+	<?php foreach ($articles as $article) : ?>
+
+	<li><a href="<?php echo $this->url('see_article', array('id'=>$article['id']))?>"><?php echo $article['title'] ?></li>
+
+	<?php endforeach; ?>
+</ul>
+
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 <?php $this->stop('main_content');?>

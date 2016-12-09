@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 <?php $this->layout('layoutBo', ['title' => 'Liste des catégories']) ?>
 
 <?php $this->start('main_content');?>
 
 <section id="sectionnage"></section>
 
+=======
+<?php $this->layout('layout', ['title' => 'Liste des catégories']) ?>
+
+<?php $this->start('main_content');?>
+
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 <ul>
 	<?php foreach ($categoriesList as $category) : ?>
 
@@ -12,6 +19,7 @@
 	<?php endforeach; ?>
 </ul>
 
+<<<<<<< HEAD
 <section></section>
 
 
@@ -32,4 +40,6 @@
 
 </table>
 
+=======
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 <?php $this->stop('main_content');?>

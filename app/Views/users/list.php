@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php $this->layout('layoutBo', ['title' => 'Liste des utilisateurs bloginfos']) ?>
 
 <?php $this->start('main_content'); ?>
@@ -47,3 +48,13 @@ foreach ($listUsers as $user) {
 </table>
 </ul>
 <?php $this->stop('main_content'); ?>
+=======
+<?php $this->layout('layout', ['title' => 'Liste des utilisateurs']) ?>
+
+<?php $this->start('main_content');?>
+
+blabla
+
+
+<?php $this->stop('main_content');?>
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b

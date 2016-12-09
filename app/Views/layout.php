@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	
 	<header id="appHeader">
 
@@ -47,6 +48,12 @@
 	</header>
 
 <h2> <?php echo $this->e($title); ?> </h2>
+=======
+	<div class="container">
+		<header>
+			<h1><?= $this->e($title) ?></h1>
+		</header>
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 
 		<section>
 

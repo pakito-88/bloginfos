@@ -5,6 +5,7 @@ namespace Controller;
 use W\Controller\Controller;
 use Model\ArticlesModel;
 use Model\CategoriesModel;
+<<<<<<< HEAD
 use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\ValidationException;
 
@@ -13,12 +14,22 @@ class ArticlesController extends BaseController
 
 	/**
 	* Cette fonction sert à afficher la liste des articles
+=======
+
+class ArticlesController extends Controller
+{
+
+	/**
+	* Cette fonction sert à afficher la liste des articles et la liste des catégories
+	* Elle sert également à insérer un article en BDD
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 	*/
 	public function articlesList() {
 
 		$articlesModel = new ArticlesModel();
 		$articlesList = $articlesModel->findAll();
 
+<<<<<<< HEAD
 		$categoriesArticle = $articlesModel->searchCategoryWithArticle();
 
 		$this->show(
@@ -146,6 +157,36 @@ class ArticlesController extends BaseController
 
 		$this->show('articles/update', array('idArticle'=> $idArticle, 'datas' => $datas, 'categoriesList' => $categoriesList));
 
+=======
+		$categoriesModel = new CategoriesModel();
+		$categoriesList = $categoriesModel->findAll();
+
+
+		if(!empty($_POST)) {
+			$articlesModel = new articlesModel();
+			$datas = array(
+				'title' => $_POST['title'],
+				'content' => $_POST['content'],
+				'author' => $_POST['author'],
+				'id_category' => $_POST['id_category'],
+				'creation_date' => date('Y-m-d H:i:s'),
+				'id_user' => 1,
+				);
+
+			$article = $articlesModel->insert($datas);
+
+			$this->redirectToRoute('articles_list');
+		}
+
+
+		$this->show(
+			'articles/list', 
+			array(
+				'articlesList' => $articlesList,
+				'categoriesList' => $categoriesList
+			)
+		);
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 	}
 
 
@@ -161,10 +202,14 @@ class ArticlesController extends BaseController
 		$ArticlesModel = new ArticlesModel();
 		$article = $ArticlesModel->find($id);
 
+<<<<<<< HEAD
 		$categoriesModel = new CategoriesModel();
 		$articlesSidebar = $categoriesModel->searchArticlesWithCategory($article['id_category']);
 
 		$this->show('articles/see', array('article' => $article, 'articlesSidebar' => $articlesSidebar));
+=======
+		$this->show('articles/see', array('article' => $article));
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 	}
 
 
@@ -176,11 +221,16 @@ class ArticlesController extends BaseController
 		$deletedArticle = $articlesModel->delete($id);
 
 		$this->redirectToRoute('articles_list');
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 		$this->show('articles/deleteArticle', array('deletedArticle' => $deletedArticle));
 	}
 
 
+<<<<<<< HEAD
 	public function updateArticle($id) {
 
 		$ArticlesModel = new ArticlesModel();
@@ -204,4 +254,6 @@ class ArticlesController extends BaseController
 
 		}
 
+=======
+>>>>>>> 40772e9cc8adcae8e9077d261d56ba443212e97b
 }
