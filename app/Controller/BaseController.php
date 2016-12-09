@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Plasticbrain\FlashMessages\FlashMessages;
+use Model\CategoriesModel;
 
 class BaseController extends Controller
 {
@@ -30,12 +31,16 @@ class BaseController extends Controller
 
 		$this->fmsg = new FlashMessages(); // en l'instanciant dans le constructeur on pourra utiliser fmsg direct sans instancier l'objet a chaque fois
 
+		$categoriesModel = new CategoriesModel();
+		$categoriesListMenu = $categoriesModel->findAll();
+
 		$this->engine->addData(
 			[
 				'w_user' 		  => $this->getUser(),
 				'w_current_route' => $app->getCurrentRoute(),
 				'w_site_name'	  => $app->getConfig('site_name'),
-				'fmsg'			  => $this->getFlashMessenger()
+				'fmsg'			  => $this->getFlashMessenger(),
+				'categoriesListMenu' => $categoriesListMenu
 			]
 		);
 

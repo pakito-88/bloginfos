@@ -5,20 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use Model\CategoriesModel;
 
-class CategoriesController extends Controller
+class CategoriesController extends BaseController
 {
-
-	/**
-	* Cette fonction sert à afficher la liste des articles
-	*/
-	public function categoriesList() {
-
-		$categoriesModel = new CategoriesModel();
-
-		$categoriesList = $categoriesModel->findAll();
-
-		$this->show('categories/list', array('categoriesList' => $categoriesList));
-	}
 
 
 	/**

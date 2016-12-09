@@ -1,26 +1,704 @@
-html, body {
-	font-family: Consolas, monaco, monospace;
-	background-color: #272822;
-	color: #F8F8F2;
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,700|Roboto:400,700';
+
+*{
+	margin: 0;
+	padding: 0;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.container {
-	margin: 50px;
+html{
+	font-size: 62.5%; // 1rem = 10px
+}
+
+body{
+	font-size: 1.5rem;
+	background-color: #eee;
+	font-family: 'Roboto', sans-serif;
+	overflow-x: hidden;
+    text-align: center;
+    position: relative;
+   
+}
+/*-----------------------------------------------------*/
+
+/*Liens et Titres : */
+
+header a{
+	color: white;
+	text-decoration: none;
+	padding: 1rem 1.5rem;
+
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+
+a:hover{
+	color: #2B2C36;
+	background-color: white;
 }
 
 a {
-	text-decoration: none;
-	color: #A6E22E;
+    color: grey;
+    text-decoration: none;
 }
 
-a:hover {
-	color: #F92672;
+h1, span{
+    text-align: left;
 }
 
-h1 {
-	color: #F92672;
+span{
+    text-align: left;
 }
 
-h2 {
-	color: #66D9EF;
+
+h1, h3 {
+    font-family: 'Roboto Slab', serif;
+    line-height: .8em;
+}
+
+h2{
+
+    font-family: 'Roboto Slab', serif;
+    line-height: 2.8em;
+
+}
+
+h4{
+        font-weight: bold;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #efefef;
+}
+
+h1 span {
+    font-size: .5em;
+    font-weight: 300;
+    display: block;
+}
+
+
+nav {
+
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #8c2525;
+    text-align: center;
+    z-index: 1;
+}
+
+nav ul {
+    margin-right: .5rem;
+    margin-top: 9rem;
+    list-style-type: none; // Supprimer les puces de la balise UL
+}
+
+nav li:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+
+
+/*menu classique*/
+ul{
+    display: none;
+}
+
+/*Burger Menu */
+#burgerBtn{
+
+    position: absolute;
+    color: white;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3em;
+    color: #353434;
+    cursor: pointer;
+    z-index: 2;
+
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+#burgerBtn:hover{
+    color: white;
+}
+
+
+button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #353434;
+    font-size: 2rem;
+    color: white;
+    padding: .5rem;
+}
+
+button:hover {
+    background-color: #8c2525; 
+    color: white;
+  
+}
+
+label{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+
+input{
+
+      background: #252525;
+    box-shadow: 0 0 5px black inset;
+    border: 1px solid gray;
+}
+
+.sub{
+
+    background-color: #8c2525;
+    padding: 0.8rem;
+    color: white;
+    box-shadow: 0 0 5px #f5f0f0 inset;
+}
+
+.button{
+        margin-left: 2rem;
+    color: #8c2525;
+    font-weight: bold;
+}
+
+
+/*-------------------------------------------------------*/
+
+/* 
+Header
+*/
+header {
+    background-color: #8c2525;
+    color: white;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 2rem solid rgb(53, 52, 52);
+}
+
+#backHome{
+    display: none;
+}
+
+
+/*gestion de la taille de la section 1 du layout*/
+ .section1{
+    max-width: 85%;
+    margin: auto;
+}
+/*------------------------------------------------------*/
+
+/*
+Main
+*/
+main{
+    text-align: center;
+    margin-top: 2rem;
+
+    padding: 3rem .5rem 25rem .5rem;
+}
+
+.section1{
+    background-color: rgba(172, 102, 102, 0.66);
+
+        border-style: double;
+    border-width: 1rem;
+    border-color: white;
+}
+/*-------------------------------------------------*/
+
+/* 
+Page mémo des rubriques
+*/
+.memoItem{
+    text-align: left;
+    padding: 2rem;
+}
+
+.memoItem h3{
+    margin-top: 3rem;
+}
+
+.memoItem p{
+    margin-top: 1.5rem;
+    display: none;
+}
+
+
+/*-----------------------------------------------*/
+
+/*<!-- section arcticle photo -->*/
+
+section{
+    padding: 4rem;
+}
+
+section:first-of-type{
+    color: black;
+    /*background-color: rgba(222, 222, 222, 0.99);*/
+}
+
+/*lien get started*/
+
+
+
+.callToAction{
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1em;
+    font-weight: 400
+}
+
+.callToAction{
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 900;
+    display: inline-block;
+    margin-top: 2rem;
+    background-color: #F05F40;
+    color: white;
+    padding: 1rem 1.5rem;
+    -webkit-border-radius: 1rem;
+    border-radius: 1rem;
+}
+
+.callToAction.white{
+    color: #222;
+    background-color: white;
+}
+
+
+/*----------------------------------------------------------*/
+
+img{
+    width: 100%;
+    /* height: 152px;*/
+    
+}
+
+/*gestion des articles de la page home*/
+
+/*Configurer la class whiteShadow, cette partie est pour intervenir et mettre le fond blanc dans le menu, mais comme la classe est définie, nous interviendrons sur toute la class c a d aussi sur les sections articles et footer*/
+.whiteShadow{
+    background-color: white;    
+
+    /*Ajouter une ombre portée, c'est pour ajouter l'ombre dans le menu*/
+    box-shadow: 0 0 .5rem black;
+
+    /*Ajouter une marge interieure avec la balise "padding*/
+    padding: 1.5rem;
+
+    /*Ajouter une marge extérieure en bas avec la balise margin bottown*/
+    margin-bottom: 1.5rem;
+
+}
+
+
+
+/*configurer les articles*/
+article{
+    /*aligner les articles sur une ligne*/
+    display: inline-block;
+
+    /*on rajoute un alignement verticale "vertical align: top " car le inline block lorsque l'on réduit le texte il réduit egalement le bloque en entier, et il réduit la table vers le haut du coup pour que la table se réduit vers le bas on rajoute alignement verticale Pour que la table reste inchanger  que le texte soit court ou long on on rajoute la balise min-height */
+
+    vertical-align: top; 
+
+    /*réduire la taille des articles*/
+    width: 23.34%;
+
+
+    /*Ajouter une marge extérieure à droite*/
+    margin-right: 1.5rem;
+
+    /*Bloquer les enfants à l'intérieure*/
+    position: relative;
+
+}
+
+/*Annuler la marge droite de #lastArticle (c'est le deuxieme id que l'on a créer*/
+#lastArticle{
+    margin-right: 0;
+}
+
+/*Ajuster le positionnement de .readMore*/
+.readMore{
+    /*sortir les balises du flux*/
+    position: absolute;
+
+    /*Repositionner les balises*/
+    bottom: 1.5rem;
+    right: 1.5rem;
+        color: #8c2525;
+    font-weight: bold;
+}
+
+p{
+    margin-bottom: 3.5rem;
+    /*margin bottom c'est pour régler l'espace entre le texte des paragraphes et le more*/
+    /*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
+    text-indent: 1.5rem;
+    text-align: justify;
+    color: black;
+    /*ici on fait une marge entre les paragraphes et le "more"*/
+}
+
+
+/*séction welcome, ici on s'occupe de la section juste avant le footer avec les 4images on les positionnes à côté du texte*/
+#welcome img{
+    width: 48%;
+}
+
+/*Sélectionner le premier type d'article de la balise #welcome*/
+#welcome article:first-of-type{
+    width: 23%;
+}
+
+/*Sélectionner le dernier type d'article de la balise #welcome*/
+#welcome article:last-of-type{
+    width: 74%;
+    margin-right: 0;
+}
+
+strong{
+    display: block;
+    /*ici on déplace le texte*/
+    margin-bottom: 1rem;
+    font-size: 2rem;
+
+}
+
+/*gestion de la sidebar page categorie*/
+#sidebar{
+    background-color: rgba(140, 37, 37, 0.67);
+      border-style: double;
+    border-width: 1rem;
+    border-color: white;
+}
+
+#sidebar, .test{
+    display: block;
+    
+
+}
+
+.titre{
+    padding: 3rem;
+}
+
+.photoCategorie{
+    padding-bottom: 3rem;
+}
+
+
+/*............Traitement du footer...............*/
+
+.maxSiteWidth{
+    max-width: 95rem;
+    margin: auto;
+}
+
+
+/*footer {
+    background-color: #8c2525;
+    color: white;
+    padding: 2rem 2rem 8rem 2rem;
+    position: relative;
+    font-size: 1.2rem; 
+}*/
+
+footer{
+   
+    background-color: #8c2525;
+    color: white;
+    padding: 2rem 2rem 8rem 2rem;
+    /*position: absolute;*/
+    font-size: 1.2rem;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+}
+
+
+
+
+footer article:nth-child(1){
+    margin: 2rem auto;
+    right: 0;
+    left: 0;
+    display: inline;
+}
+
+footer aside {
+    background-color: #020202;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    font-size: .8 em;
+}
+
+footer article:nth-child(1) a {
+    display: inline-block;
+    position: relative;
+    font-size: 1.5rem;
+    border: .1rem solid white;
+    height: 2rem;
+    width: 2rem;
+    padding: .5rem;
+    margin: .5rem;
+    
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+footer article .fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} 
+
+/*................traitement des icones reseaux sociaux...................*/
+
+.fb:hover{
+    background-color:   #204390;
+    color: white;
+}
+
+
+.google:hover{
+    background-color: red;
+    color: white;
+}
+
+.twit:hover{
+
+    background-color: #1da1f2;
+    color: white;
+}
+
+.linkedin:hover{
+    background-color: #0077b5;
+    color: white;
+}
+
+.dribbble:hover{
+     background-color: #0077b5;
+    color: white;
+}
+
+
+/*...........traitement formulaire inscription de la page catégorie............*/
+
+.forminscription{
+
+    border:3px solid #ccc;
+    padding:3px;
+    text-align:center;
+    background-color: #efefef;
+    color: #c12525;
+    font-weight: bold;
+}
+
+.inputinscription{
+
+    width:140px
+}
+
+.forminscription > p{
+    text-align: center;
+}
+
+
+.titreconnecter{
+    text-align: left;
+}
+
+
+/*.tof{
+
+    width: 30%;
+}*/
+
+
+.formconnection {
+    background-color: rgba(53, 52, 52, 0.43);
+    /* padding-bottom: 14rem; */
+    padding-left: 2rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
+    /* padding-right: 6rem; */
+    margin: -4rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+    /* vertical-align: middle; */
+    /* padding: 22rem; */
+}
+
+
+
+
+
+/*-------------------------------------------------------------*/
+
+
+
+/*Requètes media pour la version pc*/
+@media screen and (min-width: 750px){
+
+
+    /*nav du header */
+    ul{
+        display: inline-block;
+    }
+
+    li{
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+    font-size: 2rem;
+
+    }
+
+    #burgerBtn{
+        display: none;
+    }
+
+
+    nav{
+        margin-top: -7rem;
+    }
+
+    /*modification du formulaire login version pc*/
+    .formconnection {
+    background-color: rgba(53, 52, 52, 0.43);
+ 
+    padding-top: 10rem;
+    padding-left: 6rem;
+    max-width: 60rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+   
+    }
+
+
+
+}
+
+/*-------------------------------------------------------------------------------*/
+
+
+
+@media screen and (min-width: 900px){
+/*gestion de la sidebar*/
+
+#sidebar, .test{
+    display: block;
+     line-height: 7rem;
+
+}
+
+#sidebar {
+    background-color: #8c2525;
+    width: 29rem;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+
+      border-style: double;
+    border-width: 1rem;
+    border-color: white;
+    
+}
+
+
+
+
+
+/*----------------titre & article----------*/
+
+.titre{
+    text-align: center;
+    color: green;
+
+}
+
+#rubrique {
+    margin-bottom: 5rem;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+
+
+.photoCategorie{
+    width: 83%;
+    /*float: left;*/
+
+    padding-top: 5rem;
+}
+
+
+
+.article{
+
+    margin-right: 1.5rem;
+    position: relative;
+    padding-top: 10rem;
+}
+
+
+/*formulaire*/
+
+
+
+
+form input, form textarea {
+    color: white;
+    background : #252525;
+    box-shadow : 0 0 5px black inset;
+    border: 1px solid gray;
+    padding : 2px;
+}
+
+.form-message {
+  
+    width: 30%;
+   
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.form-message input, .form-message textarea {
+    vertical-align: middle;
+    height: 30px;
+    width: calc(100% - 90px);
+}
+
+.form-message input[type="submit"] {
+    border-radius: 0;
+    width: 90px;
+}
+
+main section:nth-child(1) article, footer article:nth-child(2), footer article {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+        margin: 1rem;
+    }
+
 }

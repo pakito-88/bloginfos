@@ -2,9 +2,9 @@
 
 namespace Controller;
 
-use \W\Controller\Controller;
+use Model\CategoriesModel;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
 
 	/**

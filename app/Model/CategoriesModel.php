@@ -15,7 +15,7 @@ class CategoriesModel extends Model
 
 	public function searchArticlesWithCategory($idCategory) {
 
-		$query = "SELECT articles.title, articles.id FROM $this->table JOIN articles ON $this->table.id = articles.id_category WHERE articles.id_category = :id_category";
+		$query = "SELECT articles.* FROM $this->table JOIN articles ON $this->table.id = articles.id_category WHERE articles.id_category = :id_category";
 
 
 		$stmt = $this->dbh->prepare($query);

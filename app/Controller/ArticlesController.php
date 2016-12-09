@@ -5,6 +5,8 @@ namespace Controller;
 use W\Controller\Controller;
 use Model\ArticlesModel;
 use Model\CategoriesModel;
+use Respect\Validation\Validator as v;
+use Respect\Validation\Exceptions\ValidationException;
 
 class ArticlesController extends BaseController
 {
@@ -43,29 +45,89 @@ class ArticlesController extends BaseController
 
 		if (!empty($_POST)) {
 
-			$datas = array(
-			'title' => $_POST['title'],
-			'content' => $_POST['content'],
-			'author' => $_POST['author'],
-			'id_category' => $_POST['id_category'],
-			'creation_date' => date('Y-m-d H:i:s'),
-			'id_user' => 1,
-			);
+			if(empty($_POST['title'])) {
+				$this->getFlashMessenger()->error('Veuillez entrer un titre');
+			}
+			
+			if(empty($_POST['content'])) {
+				$this->getFlashMessenger()->error('Veuillez entrer un contenu');
+			}
 
-			$idArticle = $_POST['id'];
+			if(empty($_POST['author'])) {
+				$this->getFlashMessenger()->error('Veuillez entrer un auteur');
+			}
 
-			if ($idArticle != null) {
 
-				$articlesModel->update($datas, $idArticle);
-				$this->redirectToRoute('articles_list');
+				$validators = array(
+					'title' => v::length(5,55)
+						->setName('Titre de l\'article'),
 
-			}else{
+					'content' => v::length(100, null)
+						->setName('Contenu'),
 
-				$articlesNew = $articlesModel->insert($datas);
-				$this->redirectToRoute('add_articles');
-			}	
+					'author' => v::length(5,55)
+						->alnum()
+						->setName('Auteur'),
 
+					'id_category' => v::in(array('1', '2', '3', '4', '5', '6')),
+
+				);
+
+				$trads = array(
+					'alnum' => '{{name}} ne doit contenir que des caractères alphanumériques',
+					'length' => '{{name}} doit avoir une longueur minimum de {{minValue}} caractères',
+					'noWhitespace' => '{{name}} ne doit pas contenir d\'espace vide',
+					'in' => '{{name}} doit être compris dans {{haystack}}',
+					// 'ArticleNotExists' => '{{name}} existe déjà'
+				);
+
+				// Je parcours la liste de mes validateurs  en récupérant aussi le nom du champ en clé
+				foreach($validators as $field => $validator) {
+					// La méthode assert renvoie une exception de type NestedValidationException qui nous permet de récupérer le ou les messages d'erreur en cas d'erreurs
+					try {
+						// On essaie de valider la donnée si une exception se produit, on exécute le bloc catch
+						$validator->check(isset($_POST[$field]) ? $_POST[$field] : '');
+
+					} catch(ValidationException $ex) {
+						// on récupère l'exception qui signifie qu'il y a eu une erreur et on ajoute un message d'erreur avec l'autre bibliotèque
+						$ex->setTemplate($trads[$ex->getId()]);
+
+						$mainMessage = $ex->getMainMessage();
+
+						$this->getFlashMessenger()->error($mainMessage);
+
+					}
+				
+				}
+
+					$datas = array(
+						'title' => $_POST['title'],
+						'content' => $_POST['content'],
+						'author' => $_POST['author'],
+						'id_category' => $_POST['id_category'],
+						'creation_date' => date('Y-m-d H:i:s'),
+						'id_user' => 1,
+					);
+
+				if(! $this->getFlashMessenger()->hasErrors()) {
+
+					$idArticle = $_POST['id'];
+
+					if ($idArticle != null) {
+
+						$articlesModel->update($datas, $idArticle);
+
+					} else{
+
+						$articlesNew = $articlesModel->insert($datas);
+						
+					}
+
+					$this->redirectToRoute('articles_list');
+				}
+			
 		} else {
+			
 			if (isset($idArticle)) {
 				
 				$articleInfos = $articlesModel->find($idArticle);
@@ -78,16 +140,13 @@ class ArticlesController extends BaseController
 				'creation_date' => $articleInfos['creation_date'],
 				'id_user' => $articleInfos['id_user']
 				);	
+			}
+
 		}
 
 		$this->show('articles/update', array('idArticle'=> $idArticle, 'datas' => $datas, 'categoriesList' => $categoriesList));
 
-		}
-
 	}
-
-
-
 
 
 	/**
@@ -102,7 +161,10 @@ class ArticlesController extends BaseController
 		$ArticlesModel = new ArticlesModel();
 		$article = $ArticlesModel->find($id);
 
-		$this->show('articles/see', array('article' => $article));
+		$categoriesModel = new CategoriesModel();
+		$articlesSidebar = $categoriesModel->searchArticlesWithCategory($article['id_category']);
+
+		$this->show('articles/see', array('article' => $article, 'articlesSidebar' => $articlesSidebar));
 	}
 
 
@@ -114,7 +176,7 @@ class ArticlesController extends BaseController
 		$deletedArticle = $articlesModel->delete($id);
 
 		$this->redirectToRoute('articles_list');
-
+ 
 		$this->show('articles/deleteArticle', array('deletedArticle' => $deletedArticle));
 	}
 

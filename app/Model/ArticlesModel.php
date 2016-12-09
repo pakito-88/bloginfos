@@ -17,7 +17,6 @@ class ArticlesModel extends Model
 
 		$query = "SELECT categories.name, categories.id, articles.* FROM $this->table JOIN categories ON $this->table.id_category = categories.id";
 
-
 		$stmt = $this->dbh->query($query);
 
 		$stmt->execute();
@@ -25,7 +24,5 @@ class ArticlesModel extends Model
 		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
 	}
-
-
 
 }
