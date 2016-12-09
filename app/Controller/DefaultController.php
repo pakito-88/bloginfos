@@ -14,4 +14,9 @@ class DefaultController extends BaseController
 	{
 		$this->show('default/home');
 	}
+
+	public function statistique()
+	{
+		$this->show('BackOffice/statistique');
+	}
 }

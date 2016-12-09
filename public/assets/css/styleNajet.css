@@ -3,6 +3,9 @@
 *{
 	margin: 0;
 	padding: 0;
+
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html{
@@ -14,12 +17,15 @@ body{
 	background-color: #eee;
 	font-family: 'Roboto', sans-serif;
 	overflow-x: hidden;
+    text-align: center;
+    position: relative;
+   
 }
 /*-----------------------------------------------------*/
 
 /*Liens et Titres : */
 
-a{
+header a{
 	color: white;
 	text-decoration: none;
 	padding: 1rem 1.5rem;
@@ -33,6 +39,20 @@ a:hover{
 	background-color: white;
 }
 
+a {
+    color: grey;
+    text-decoration: none;
+}
+
+h1, span{
+    text-align: left;
+}
+
+span{
+    text-align: left;
+}
+
+
 h1, h3 {
     font-family: 'Roboto Slab', serif;
     line-height: .8em;
@@ -45,6 +65,12 @@ h2{
 
 }
 
+h4{
+        font-weight: bold;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #efefef;
+}
 
 h1 span {
     font-size: .5em;
@@ -54,7 +80,7 @@ h1 span {
 
 
 nav {
-   
+
     top: 0;
     left: 100%;
     width: 100%;
@@ -77,28 +103,72 @@ nav li:not(:last-of-type) {
 
 
 /*menu classique*/
- ul{
+ul{
     display: none;
- }
+}
 
 /*Burger Menu */
- #burgerBtn{
+#burgerBtn{
 
     position: absolute;
     color: white;
     top: 2rem;
     right: 2rem;
     font-size: 3em;
-    color: #b79d83;
+    color: #353434;
     cursor: pointer;
     z-index: 2;
 
     -webkit-transition: all .5s;
     transition: all .5s;
- }
+}
 
 #burgerBtn:hover{
     color: white;
+}
+
+
+button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #353434;
+    font-size: 2rem;
+    color: white;
+    padding: .5rem;
+}
+
+button:hover {
+    background-color: #8c2525; 
+    color: white;
+  
+}
+
+label{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+
+input{
+
+      background: #252525;
+    box-shadow: 0 0 5px black inset;
+    border: 1px solid gray;
+}
+
+.sub{
+
+    background-color: #8c2525;
+    padding: 0.8rem;
+    color: white;
+    box-shadow: 0 0 5px #f5f0f0 inset;
+}
+
+.button{
+        margin-left: 2rem;
+    color: #8c2525;
+    font-weight: bold;
 }
 
 
@@ -111,7 +181,8 @@ header {
     background-color: #8c2525;
     color: white;
     padding: 2rem;
-    padding-bottom: 15rem;
+    padding-bottom: 3rem;
+    border-bottom: 2rem solid rgb(53, 52, 52);
 }
 
 #backHome{
@@ -119,6 +190,11 @@ header {
 }
 
 
+/*gestion de la taille de la section 1 du layout*/
+ .section1{
+    max-width: 85%;
+    margin: auto;
+}
 /*------------------------------------------------------*/
 
 /*
@@ -127,16 +203,17 @@ Main
 main{
     text-align: center;
     margin-top: 2rem;
+
+    padding: 3rem .5rem 25rem .5rem;
 }
 
+.section1{
+    background-color: rgba(172, 102, 102, 0.66);
 
-/* 
-Home
-
-*/
-
-
-
+        border-style: double;
+    border-width: 1rem;
+    border-color: white;
+}
 /*-------------------------------------------------*/
 
 /* 
@@ -167,7 +244,7 @@ section{
 
 section:first-of-type{
     color: black;
-    background-color: rgba(222, 222, 222, 0.99);
+    /*background-color: rgba(222, 222, 222, 0.99);*/
 }
 
 /*lien get started*/
@@ -202,8 +279,8 @@ section:first-of-type{
 /*----------------------------------------------------------*/
 
 img{
-        width: 100%;
-   /* height: 152px;*/
+    width: 100%;
+    /* height: 152px;*/
     
 }
 
@@ -213,14 +290,14 @@ img{
 .whiteShadow{
     background-color: white;    
 
-/*Ajouter une ombre portée, c'est pour ajouter l'ombre dans le menu*/
+    /*Ajouter une ombre portée, c'est pour ajouter l'ombre dans le menu*/
     box-shadow: 0 0 .5rem black;
 
-/*Ajouter une marge interieure avec la balise "padding*/
-padding: 1.5rem;
+    /*Ajouter une marge interieure avec la balise "padding*/
+    padding: 1.5rem;
 
-/*Ajouter une marge extérieure en bas avec la balise margin bottown*/
-margin-bottom: 1.5rem;
+    /*Ajouter une marge extérieure en bas avec la balise margin bottown*/
+    margin-bottom: 1.5rem;
 
 }
 
@@ -228,22 +305,22 @@ margin-bottom: 1.5rem;
 
 /*configurer les articles*/
 article{
-/*aligner les articles sur une ligne*/
-display: inline-block;
+    /*aligner les articles sur une ligne*/
+    display: inline-block;
 
-/*on rajoute un alignement verticale "vertical align: top " car le inline block lorsque l'on réduit le texte il réduit egalement le bloque en entier, et il réduit la table vers le haut du coup pour que la table se réduit vers le bas on rajoute alignement verticale Pour que la table reste inchanger  que le texte soit court ou long on on rajoute la balise min-height */
+    /*on rajoute un alignement verticale "vertical align: top " car le inline block lorsque l'on réduit le texte il réduit egalement le bloque en entier, et il réduit la table vers le haut du coup pour que la table se réduit vers le bas on rajoute alignement verticale Pour que la table reste inchanger  que le texte soit court ou long on on rajoute la balise min-height */
 
-vertical-align: top; 
+    vertical-align: top; 
 
-/*réduire la taille des articles*/
-width: 23.34%;
+    /*réduire la taille des articles*/
+    width: 23.34%;
 
 
-/*Ajouter une marge extérieure à droite*/
-margin-right: 1.5rem;
+    /*Ajouter une marge extérieure à droite*/
+    margin-right: 1.5rem;
 
-/*Bloquer les enfants à l'intérieure*/
-position: relative;
+    /*Bloquer les enfants à l'intérieure*/
+    position: relative;
 
 }
 
@@ -254,22 +331,24 @@ position: relative;
 
 /*Ajuster le positionnement de .readMore*/
 .readMore{
-/*sortir les balises du flux*/
-position: absolute;
+    /*sortir les balises du flux*/
+    position: absolute;
 
-/*Repositionner les balises*/
-bottom: 1.5rem;
-right: 1.5rem;
+    /*Repositionner les balises*/
+    bottom: 1.5rem;
+    right: 1.5rem;
+        color: #8c2525;
+    font-weight: bold;
 }
 
 p{
     margin-bottom: 3.5rem;
-/*margin bottom c'est pour régler l'espace entre le texte des paragraphes et le more*/
-/*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
+    /*margin bottom c'est pour régler l'espace entre le texte des paragraphes et le more*/
+    /*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
     text-indent: 1.5rem;
     text-align: justify;
-
-/*ici on fait une marge entre les paragraphes et le "more"*/
+    color: black;
+    /*ici on fait une marge entre les paragraphes et le "more"*/
 }
 
 
@@ -280,21 +359,192 @@ p{
 
 /*Sélectionner le premier type d'article de la balise #welcome*/
 #welcome article:first-of-type{
-width: 23%;
+    width: 23%;
 }
 
 /*Sélectionner le dernier type d'article de la balise #welcome*/
 #welcome article:last-of-type{
-width: 74%;
-margin-right: 0;
+    width: 74%;
+    margin-right: 0;
 }
 
 strong{
     display: block;
-/*ici on déplace le texte*/
+    /*ici on déplace le texte*/
     margin-bottom: 1rem;
     font-size: 2rem;
 
+}
+
+/*gestion de la sidebar page categorie*/
+#sidebar{
+    background-color: rgba(140, 37, 37, 0.67);
+      border-style: double;
+    border-width: 1rem;
+    border-color: white;
+}
+
+#sidebar, .test{
+    display: block;
+    
+
+}
+
+.titre{
+    padding: 3rem;
+}
+
+.photoCategorie{
+    padding-bottom: 3rem;
+}
+
+
+/*............Traitement du footer...............*/
+
+.maxSiteWidth{
+    max-width: 95rem;
+    margin: auto;
+}
+
+
+/*footer {
+    background-color: #8c2525;
+    color: white;
+    padding: 2rem 2rem 8rem 2rem;
+    position: relative;
+    font-size: 1.2rem; 
+}*/
+
+footer{
+   
+    background-color: #8c2525;
+    color: white;
+    padding: 2rem 2rem 8rem 2rem;
+    /*position: absolute;*/
+    font-size: 1.2rem;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+}
+
+
+
+
+footer article:nth-child(1){
+    margin: 2rem auto;
+    right: 0;
+    left: 0;
+    display: inline;
+}
+
+footer aside {
+    background-color: #020202;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 0;
+    font-size: .8 em;
+}
+
+footer article:nth-child(1) a {
+    display: inline-block;
+    position: relative;
+    font-size: 1.5rem;
+    border: .1rem solid white;
+    height: 2rem;
+    width: 2rem;
+    padding: .5rem;
+    margin: .5rem;
+    
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+footer article .fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} 
+
+/*................traitement des icones reseaux sociaux...................*/
+
+.fb:hover{
+    background-color:   #204390;
+    color: white;
+}
+
+
+.google:hover{
+    background-color: red;
+    color: white;
+}
+
+.twit:hover{
+
+    background-color: #1da1f2;
+    color: white;
+}
+
+.linkedin:hover{
+    background-color: #0077b5;
+    color: white;
+}
+
+.dribbble:hover{
+     background-color: #0077b5;
+    color: white;
+}
+
+
+/*...........traitement formulaire inscription de la page catégorie............*/
+
+.forminscription{
+
+    border:3px solid #ccc;
+    padding:3px;
+    text-align:center;
+    background-color: #efefef;
+    color: #c12525;
+    font-weight: bold;
+}
+
+.inputinscription{
+
+    width:140px
+}
+
+.forminscription > p{
+    text-align: center;
+}
+
+
+.titreconnecter{
+    text-align: left;
+}
+
+
+/*.tof{
+
+    width: 30%;
+}*/
+
+
+.formconnection {
+    background-color: rgba(53, 52, 52, 0.43);
+    /* padding-bottom: 14rem; */
+    padding-left: 2rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
+    /* padding-right: 6rem; */
+    margin: -4rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+    /* vertical-align: middle; */
+    /* padding: 22rem; */
 }
 
 
@@ -306,8 +556,7 @@ strong{
 
 
 /*Requètes media pour la version pc*/
-@media screen and (min-width: 450px){
-
+@media screen and (min-width: 750px){
 
 
     /*nav du header */
@@ -318,45 +567,138 @@ strong{
     li{
         display: inline-block;
         text-align: center;
+        font-weight: bold;
+    font-size: 2rem;
 
     }
 
+    #burgerBtn{
+        display: none;
+    }
 
-  #burgerBtn{
-    display: none;
- }
+
+    nav{
+        margin-top: -7rem;
+    }
+
+    /*modification du formulaire login version pc*/
+    .formconnection {
+    background-color: rgba(53, 52, 52, 0.43);
+ 
+    padding-top: 10rem;
+    padding-left: 6rem;
+    max-width: 60rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+   
+    }
 
 
-.sidebar{
-    display: block;
+
 }
 
-#test {
+/*-------------------------------------------------------------------------------*/
+
+
+
+@media screen and (min-width: 900px){
+/*gestion de la sidebar*/
+
+#sidebar, .test{
     display: block;
-    text-align: left;
-    background-color: rgba(140, 37, 37, 0.5);
-    width: 20%;
+     line-height: 7rem;
+
+}
+
+#sidebar {
+    background-color: #8c2525;
+    width: 29rem;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+
+      border-style: double;
+    border-width: 1rem;
+    border-color: white;
+    
+}
+
+
+
+
+
+/*----------------titre & article----------*/
+
+.titre{
+    text-align: center;
+    color: green;
+
+}
+
+#rubrique {
+    margin-bottom: 5rem;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+
+
+.photoCategorie{
+    width: 83%;
+    /*float: left;*/
+
+    padding-top: 5rem;
+}
+
+
+
+.article{
+
+    margin-right: 1.5rem;
+    position: relative;
+    padding-top: 10rem;
+}
+
+
+/*formulaire*/
+
+
+
+
+form input, form textarea {
+    color: white;
+    background : #252525;
+    box-shadow : 0 0 5px black inset;
+    border: 1px solid gray;
+    padding : 2px;
+}
+
+.form-message {
   
-    margin-top: -6rem;
-    margin-left: -52px;
+    width: 30%;
+   
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-
-/*
- #test {width:26px;
-         min-height:200px;
-     position:fixed;
-     margin-top:250px;
-     margin-left:10px;
-     float:left;
-     background:red;
-
- }
-*/
-
-
-#article{
-    text-align: right;
+.form-message input, .form-message textarea {
+    vertical-align: middle;
+    height: 30px;
+    width: calc(100% - 90px);
 }
+
+.form-message input[type="submit"] {
+    border-radius: 0;
+    width: 90px;
+}
+
+main section:nth-child(1) article, footer article:nth-child(2), footer article {
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+        margin: 1rem;
+    }
 
 }

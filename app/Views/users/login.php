@@ -1,4 +1,4 @@
-<?php $this->layout('layoutBo', ['title' => "Connection" ]); ?>
+<?php $this->layout('layout', ['title' => "Connection" ]); ?>
 
 <?php $this->start('main_content'); ?>
 

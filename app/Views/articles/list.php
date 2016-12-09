@@ -2,6 +2,8 @@
 
 <?php $this->start('main_content');?>
 
+<section id="sectionnage"></section>
+
 <table>
 	<tr>
 		<th>Titre</th>
@@ -14,7 +16,9 @@
 	</tr>
 
 
-	<?php foreach ($categoriesArticle as $category) :?>
+	<?php
+	foreach ($categoriesArticle as $category) :
+	?>
 	<tr>
 		<td><?php echo $category['title'] ?></td>
 		<td><a href="<?php echo $this->url('see_article', array('id'=>$category['id']))?>">Lire l'article</a></td>
@@ -28,7 +32,7 @@
 		</td>
 
 		<td><a href="<?php echo $this->url('delete_article', array('id'=>$category['id'])) ?>">Supprimer</a></td>
-		<td><a href="<?php echo $this->url('update_article', array('id'=>$category['id'])) ?>">Modifier</a></td>
+		<td><a href="<?php echo $this->url('edit_articles', array('id'=>$category['id'])) ?>">Modifier</a></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

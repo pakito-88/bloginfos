@@ -42,6 +42,7 @@ h2 {
 
 body{
     font-size: 1.5rem;
+    overflow: hidden;
 }
 .user-section {
     font-size:22px;
@@ -77,7 +78,7 @@ margin-bottom: 0px
     color:#fff
 }
 .navbar-default-navbar-static-side{
-    margin-top: 11rem;
+    margin-top: 0rem;
 
 }
 .user-circle-online {

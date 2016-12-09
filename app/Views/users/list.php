@@ -2,6 +2,10 @@
 
 <?php $this->start('main_content'); ?>
 
+<section id="sectionnage"></section>
+
+<h1> Liste des Utilisateurs de BlogInfos</h1>
+
 
 <table>
 
@@ -18,9 +22,12 @@
 
 <?php 
 foreach ($listUsers as $user) {
-	$urlDel = $this->url('delete_article', array( 'id' => $user['id']));
-	$urlModif = $this->url('update_article', array('id'=>$user['id']));
+	$urlDel = $this->url('delete_User', array( 'id' => $user['id']));
+	$urlModif = $this->url('edit_User', array('id'=>$user['id']));
 	$img = $this->assetUrl('uploads/' . $user['avatar']);
+
+	$logodel='<i class="fa fa-trash" aria-hidden="true"></i>';
+	$logomodif='<i class="fa fa-pencil" aria-hidden="true"></i>';
 
 	echo '<tr>';
 	echo '<td>' . $user['pseudo'] . '</td>';
@@ -28,10 +35,9 @@ foreach ($listUsers as $user) {
 	echo '<td>*************</td>';
 	echo '<td>' . $user['sexe'] . '</td>';
 	echo '<td>' . $user['status'] . '</td>';
-	echo '<td><img src="'.$img.'"></td>';
+	echo '<td><img id="imgavatar" src="'.$img.'"></td>';
 
-	echo "<td><a href= \"$urlDel\">Supprimer</a></td>";
-	echo "<td><a href= \"$urlModif\">Modifier</a></td>";
+	echo "<td><a href= \"$urlDel\">".$logodel."</a><span> / </span><a href= \"$urlModif\">".$logomodif."</a></td>";
 	
 	echo '</tr>';
 } 

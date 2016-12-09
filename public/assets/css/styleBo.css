@@ -1,0 +1,149 @@
+a {
+	color: black;
+}
+
+a:hover{
+	color: #505050;
+	text-decoration: none;
+}
+
+h2{
+	color: #9aa7a9;
+    font-weight: bold;
+
+    padding-top: 1.2rem;
+    margin-left: 2rem;
+    margin-bottom: 4rem;
+
+
+}
+
+.fa-home{
+    font-size: 3rem;
+    transform: translateY(-0.7rem);
+}
+
+th, td{
+	border:  1px solid black;
+	    text-align: center;
+}
+th{
+	background-color: rgb(77, 102, 123);
+    color: white;
+    font-size: 2rem;
+}
+
+.myButton {
+	    border-radius: 7px;
+	    color: black;
+	    padding: 1.5rem;
+
+
+
+}
+
+.myButton:hover {
+	color: #505050;
+	text-decoration: none;
+}
+
+button {
+	 	float: right;
+    	margin-right: 45rem;
+  		margin-top: 4rem;
+  		border-radius: 7px;
+  		padding: 1rem;
+  		font-family: 'Nova Script', cursive;
+}
+
+.table{
+	 	border: groove #c1c1c1;
+	    text-align: center;
+	    margin: auto;
+	    width: 70%;
+}
+
+#appContent{
+	margin-top: 8rem;
+}
+
+#sectionnage{
+	margin-top: 16rem;
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+label, input +select +#avatar {
+    /* in order to define widths */
+    display: inline-block;
+}
+
+label {
+    width: 30%;
+    /* positions the label text beside the input */
+    text-align: right;
+}
+
+label + input +select +#avatar {
+    width: 30%;
+    /* large margin-right to force the next element to the new-line
+       and margin-left to create a gutter between the label and input */
+    margin: 0 30% 0 4%;
+}
+
+/* only the submit button is matched by this selector,
+   but to be sure you could use an id or class for that button */
+input + input {
+    float: right;
+}
+
+input[type="file"] {
+    display: initial;
+}
+
+#userButton {
+	text-align: center;
+}
+
+#inscrire{
+  margin-left: 50%;
+	transform: translate(-50%,-50%);
+	margin-top: 1.5rem;
+	border-radius: 7px;
+    color: black;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+  }
+
+.col-lg-8 {
+	margin-left: 23rem;
+}
+#imgavatar{
+  width: 20%;
+}
+
+#footer
+{
+padding: 20px 0px;
+font-size: 12px;
+background-color: #383333;
+border-top: 1px solid #3a3a3a;
+color: white;
+position: fixed;
+bottom: 0px;
+width: 100%;
+text-align: center;
+
+}
+
+@media screen and (max-width: 800px) {
+	 .nav .navbar-nav {
+	 	display: none;
+	}
+}

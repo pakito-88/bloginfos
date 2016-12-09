@@ -18,13 +18,14 @@ function isUserAdmin($data) {
 
 ?>
 
-<?php $this->layout('layout', ['title' => $w_user ? 'Modifiez votre profil' :'Inscrivez-vous !']) ?>
+<?php $this->layout('layoutBo', ['title' =>'Ajouter et Modifier un utilisateur']) ?>
 
 <?php $this->start('main_content'); ?>
 
-<h2><?php if(!$w_user): ?>Inscription d'un utilisateur<?php else: ?>Votre profil<?php endif; ?></h2>
+<h2>Ajouter et Modifier un utilisateur</h2>
 
-<form action="<?php $this->url('register'); ?>" method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="<?php afficherData('id',$datas); ?>">
 	<!-- pseudo, email, password, sexe, avatar -->
 	<p>
 		<label for="pseudo">Pseudo :</label>
@@ -39,7 +40,7 @@ function isUserAdmin($data) {
 	</p>
 	<p>
 		<label for="password">Mot de passe :</label>
-		<input type="password" name="password" id="password" value="<?php afficherData('password',$datas); ?>" />
+		<input type="password" name="password" id="password" value="" />
 		
 	</p>
 	<p>
@@ -55,7 +56,7 @@ function isUserAdmin($data) {
 		
 	</p>
 	<p>
-		<input type="submit" name="send" value="<?php if(!$w_user):  ?>S'inscrire<?php else: ?>Modifier<?php endif; ?>" />
+		<input type="submit" name="send" value="Enregistrer" />
 	</p>
 </form>
 

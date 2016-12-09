@@ -1,6 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Liste des catégories']) ?>
+<?php $this->layout('layoutBo', ['title' => 'Liste des catégories']) ?>
 
 <?php $this->start('main_content');?>
+
+<section id="sectionnage"></section>
 
 <ul>
 	<?php foreach ($categoriesList as $category) : ?>
@@ -10,7 +12,10 @@
 	<?php endforeach; ?>
 </ul>
 
+<section></section>
 
+
+<h1>CATEGORIE</h1>
 <table>
 
 	<tr>
@@ -23,27 +28,6 @@
 		<th>Actions</th>
 	</tr>
 
-
-<?php 
-foreach ($listUsers as $user) {
-	$urlDel = $this->url('delete_article', array( 'id' => $user['id']));
-	$urlModif = $this->url('update_article', array('id'=>$user['id']));
-	$img = $this->assetUrl('uploads/' . $user['avatar']);
-
-	echo '<tr>';
-	echo '<td>' . $user['pseudo'] . '</td>';
-	echo '<td>' . $user['email'] . '</td>';
-	echo '<td>*************</td>';
-	echo '<td>' . $user['sexe'] . '</td>';
-	echo '<td>' . $user['status'] . '</td>';
-	echo '<td><img src="'.$img.'"></td>';
-
-	echo "<td><a href= \"$urlDel\">Supprimer</a></td>";
-	echo "<td><a href= \"$urlModif\">Modifier</a></td>";
-	
-	echo '</tr>';
-} 
-?>
 
 
 </table>

@@ -7,10 +7,6 @@ use Model\CategoriesModel;
 
 class CategoriesController extends BaseController
 {
-
-	/**
-	* Cette fonction sert à afficher la liste des articles
-	*/
 	public function categoriesList() {
 
 		$categoriesModel = new CategoriesModel();
@@ -19,7 +15,6 @@ class CategoriesController extends BaseController
 
 		$this->show('categories/list', array('categoriesList' => $categoriesList));
 	}
-
 
 	/**
 	* Cette méthode permet de voir le contenu d'un article

@@ -7,16 +7,24 @@
     <title>BLogInfos, accès Back Office</title>
     <!-- Core CSS - Include with every page -->
 
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/styleNajet.css"> -->
+      <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="<?php echo $this->assetUrl('font-awesome/css/font-awesome.css'); ?>" rel="stylesheet" />
 
-    <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" /><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/main-style.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link href="<?php echo $this->assetUrl('plugins/bootstrap/bootstrap.css'); ?>" rel="stylesheet" />
+    
+
+
+    <link href="<?php echo $this->assetUrl('plugins/pace/pace-theme-big-counter.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo $this->assetUrl('css/style1.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo $this->assetUrl('css/main-style.css'); ?>" rel="stylesheet" />
+
+
+ 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <link href="assets/css/styleBo.css" rel="stylesheet" />
+    <link href="<?php echo $this->assetUrl('css/styleBo.css'); ?>" rel="stylesheet" />
 
    </head>
 <body>
@@ -49,17 +57,23 @@
                         </div-->
                         <!--end user image section-->
                     </li>
+                      <li class="selected">
+                        <a href="<?php echo $this->url('default_home'); ?>"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    </li>
                     <li class="selected">
-                        <a href="#"><i class="fa fa-percent" aria-hidden="true"></i> Statistiques</a>
+                        <a href="<?php echo $this->url('statistique'); ?>"><i class="fa fa-percent" aria-hidden="true"></i> Statistiques</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Gestion des utilisateurs</a>
+                        <a href="<?php echo $this->url('users_list'); ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Gestion des utilisateurs</a>
                     </li>
                      <li>
                         <a href="<?php echo $this->url('articles_list'); ?>"><i class="fa fa-file-o" aria-hidden="true"></i> Gestion des articles</a>
                     </li>
                     <li>
-                        <a href="gestionCatégorie"><i class="fa fa-globe" aria-hidden="true"></i> Gestion des catégories</a>
+                        <a href="<?php echo $this->url('categories_list'); ?>"><i class="fa fa-globe" aria-hidden="true"></i> Gestion des catégories</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('comments_list'); ?>"><i class="fa fa-globe" aria-hidden="true"></i> Gestion des commentaires</a>
                     </li>
                 </ul>
 
@@ -74,8 +88,6 @@
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="<?php echo $this->url('register'); ?>"><i class="fa fa-user fa-fw"></i>Profil de l'utilisateur</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Réglages</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?php echo $this->url('logout'); ?>"><i class="fa fa-sign-out fa-fw"></i>Déconnexion</a>
@@ -111,6 +123,9 @@
         </section>
 
     </main>
+
+      <footer id="footer">Copyright © 2016 BlogInfos</footer>
+
 
    
 
