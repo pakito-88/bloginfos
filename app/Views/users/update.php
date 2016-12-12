@@ -22,7 +22,10 @@ function isUserAdmin($data) {
 
 <?php $this->start('main_content'); ?>
 
-<h2>Ajouter et Modifier un utilisateur</h2>
+<section id="sectionnage">
+	<h2>Ajouter et Modifier un utilisateur</h2>
+</section>
+
 
 <form method="POST" enctype="multipart/form-data">
 	<input type="hidden" name="id" value="<?php afficherData('id',$datas); ?>">

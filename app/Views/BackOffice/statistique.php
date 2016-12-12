@@ -2,6 +2,8 @@
 
 
   <?php $this->start('main_content'); ?>
+
+
  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,25 +22,15 @@
     <link href="assets/css/styleBo.css" rel="stylesheet" />
 
    </head>
-
+        <div class="col-lg-12">
+            <h2 class="stats">Statistiques</h2>
+        </div>
  <!--  page-wrapper -->
         <div id="page-wrapper">
-
-            <div class="row">
-                <!-- Page Header -->
-                <div class="col-lg-12">
-                    <h1 class="page-header">Statistiques</h1>
-                </div>
-                <!--End Page Header -->
-            </div>
-
-            <div class="row">
-               
-
-
-            <div class="row">
+          
                 <!--quick info section -->
                 <div class="col-lg-3">
+                    
                     <div class="alert alert-danger text-center">
                         <i class="fa fa-user fa-3x"  aria-hidden="true"></i>&nbsp;<b>10 </b>Nouveaux inscrits en un jour
 

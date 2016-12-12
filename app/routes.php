@@ -41,11 +41,18 @@
 		
 		['GET|POST', '/articles-admin/edit/[i:id]', 'Articles#editArticles', 'edit_articles'],
 		['GET|POST', '/articles-admin/edit', 'Articles#editArticles', 'add_articles'],
-		['GET', '/article/[i:id]', 'Articles#seeArticle', 'see_article'],
+		['GET|POST', '/article/[i:id]', 'Articles#seeArticle', 'see_article'],
 		['GET', '/suppression/article/[i:id]', 'Articles#deleteArticle', 'delete_article'],
-		['GET', '/modification/article/[i:id]', 'Articles#updateArticle', 'update_article'],
+		['GET|POST', '/modification/article/[i:id]', 'Articles#updateArticle', 'update_article'],
 
 
 		['GET', '/categorie', 'Categories#categoriesList', 'categories_list'],
-		['GET', '/categorie/[i:id]', 'Categories#seeCategory', 'see_category']
+
+		['GET', '/suppression/categorie/[i:id]', 'Categories#deleteCategory', 'delete_category'],
+
+		['GET', '/categorie/[i:id]', 'Categories#seeCategory', 'see_category'],
+
+		['GET|POST', '/categorie-admin/edit', 'Categories#editCategory', 'add_category'],
+		
+		['GET|POST', '/modification/categorie/[i:id]', 'Categories#editCategory', 'update_category']
 		);

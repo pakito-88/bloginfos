@@ -3,10 +3,9 @@
 <?php $this->start('main_content'); ?>
 
 <section id="sectionnage">
-	<h1> Liste des Utilisateurs de BlogInfos</h1>
+	<h2> Liste des utilisateurs de BlogInfos</h2>
 
 </section>
-
 
 <section id="tableau">
 <table>
@@ -50,5 +49,9 @@ foreach ($listUsers as $user) {
 
 
 </section>
-<button><a href="<?php echo $this->url('add_User')?>">Ajouter un utilisateur</a></button>
+
+<section>
+	<button><a href="<?php echo $this->url('add_User')?>">Ajouter un utilisateur</a></button>
+ </section>
+
 <?php $this->stop('main_content'); ?>

@@ -5,6 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Plasticbrain\FlashMessages\FlashMessages;
 use Model\CategoriesModel;
+use Model\ArticlesModel;
+
 
 class BaseController extends Controller
 {
@@ -34,13 +36,17 @@ class BaseController extends Controller
 		$categoriesModel = new CategoriesModel();
 		$categoriesListMenu = $categoriesModel->findAll();
 
+		$articlesModel = new ArticlesModel();
+		$lastArticlesReleased = $articlesModel-> findAll();
+
 		$this->engine->addData(
 			[
 				'w_user' 		  => $this->getUser(),
 				'w_current_route' => $app->getCurrentRoute(),
 				'w_site_name'	  => $app->getConfig('site_name'),
 				'fmsg'			  => $this->getFlashMessenger(),
-				'categoriesListMenu' => $categoriesListMenu
+				'categoriesListMenu' => $categoriesListMenu,
+				'articlesModel' => $articlesModel
 			]
 		);
 

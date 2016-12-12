@@ -1,22 +1,23 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,700|Roboto:400,700';
+
+ @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:300,700|Roboto:400,700';
 
 *{
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 html{
-	font-size: 62.5%; // 1rem = 10px
+    font-size: 62.5%; // 1rem = 10px
 }
 
 body{
-	font-size: 1.5rem;
-	background-color: #eee;
-	font-family: 'Roboto', sans-serif;
-	overflow-x: hidden;
+    font-size: 1.5rem;
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
     text-align: center;
     position: relative;
    
@@ -24,24 +25,27 @@ body{
 /*-----------------------------------------------------*/
 
 /*Liens et Titres : */
-
-a {
-    color: black;
-    text-decoration: none;
+#appHeader > h2{
+    display: none;
 }
 
 header a{
-	color: white;
-	text-decoration: none;
-	padding: 1rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
 
-	-webkit-transition: all .5s;
-	transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 
 a:hover{
-	color: #2B2C36;
-	background-color: white;
+    color: #2B2C36;
+    background-color: white;
+}
+
+a {
+    color: grey;
+    text-decoration: none;
 }
 
 h1, span{
@@ -52,10 +56,13 @@ span{
     text-align: left;
 }
 
+section h3{
+    color: black;
+}
 
 h1, h3 {
     font-family: 'Roboto Slab', serif;
-    line-height: .8em;
+    line-height: 1.8em;
 }
 
 h2{
@@ -64,10 +71,30 @@ h2{
     line-height: 2.8em;
 
 }
+
+h2{
+    border: 3px #353434 ridge;
+    background-color: #353434;
+    color: white;
+    box-shadow: 6px 6px 0px black;
+    border-width: 0.5rem;
+    /* border-left-width: 3rem; */
+    white-space: pre-wrap;
+    /* width: 100%; */
+    margin: 5rem;
+}
+
+
+
 h3{
         color: white;
+    color: white;
+    font-size: 2rem;
+    /*padding: 4rem;*/
+
        
     }
+
 h4{
         font-weight: bold;
     line-height: 5rem;
@@ -87,6 +114,7 @@ nav {
     top: 0;
     left: 100%;
     width: 100%;
+    /*height: 100%;*/
     background-color: #8c2525;
     text-align: center;
     z-index: 1;
@@ -288,17 +316,13 @@ img{
 
 /*gestion des articles de la page home*/
 
-/*Configurer la class whiteShadow, cette partie est pour intervenir et mettre le fond blanc dans le menu, mais comme la classe est définie, nous interviendrons sur toute la class c a d aussi sur les sections articles et footer*/
 .whiteShadow{
     background-color: white;    
 
-    /*Ajouter une ombre portée, c'est pour ajouter l'ombre dans le menu*/
     box-shadow: 0 0 .5rem black;
 
-    /*Ajouter une marge interieure avec la balise "padding*/
+   
     padding: 1.5rem;
-
-    /*Ajouter une marge extérieure en bas avec la balise margin bottown*/
     margin-bottom: 1.5rem;
 
 }
@@ -307,18 +331,13 @@ img{
 
 /*configurer les articles*/
 article{
-    /*aligner les articles sur une ligne*/
-   display: inline-block;
-
-    /*on rajoute un alignement verticale "vertical align: top " car le inline block lorsque l'on réduit le texte il réduit egalement le bloque en entier, et il réduit la table vers le haut du coup pour que la table se réduit vers le bas on rajoute alignement verticale Pour que la table reste inchanger  que le texte soit court ou long on on rajoute la balise min-height */
+   
 
     vertical-align: top; 
 
     /*réduire la taille des articles*/
-  width: 23.34%;
-
-
-    /*Ajouter une marge extérieure à droite*/
+    /*width: 23.34%;*/
+        width: 100%;
     margin-right: 1.5rem;
 
     /*Bloquer les enfants à l'intérieure*/
@@ -343,15 +362,29 @@ article{
     font-weight: bold;
 }
 
-p{
-    margin-bottom: 3.5rem;
-    /*margin bottom c'est pour régler l'espace entre le texte des paragraphes et le more*/
-    /*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
+
+
+
+p {
+    /* margin-bottom: 3.5rem; */
     text-indent: 1.5rem;
     text-align: justify;
-
-    /*ici on fait une marge entre les paragraphes et le "more"*/
+    color: black;
 }
+
+
+
+
+/*p{
+    margin-bottom: 3.5rem;*/
+    /*margin bottom c'est pour régler l'espace entre le texte des paragraphes et le more*/
+    /*décaler la premier ligne (l"indentation, c'est l'alineat, avec text indent */
+   /* text-indent: 1.5rem;
+    text-align: justify;
+    color: black;*/
+    /*ici on fait une marge entre les paragraphes et le "more"*/
+/*}*/
+
 
 
 /*séction welcome, ici on s'occupe de la section juste avant le footer avec les 4images on les positionnes à côté du texte*/
@@ -386,8 +419,11 @@ strong{
     border-color: white;
 }
 
+/*réglage de la taille de sidebar en format portable*/
+
 #sidebar, .test{
     display: block;
+    padding: initial;
     
 
 }
@@ -423,12 +459,14 @@ footer{
     color: white;
     padding: 2.9rem 2rem 8rem 2rem;
     /*position: absolute;*/
+   /*position: fixed;*/
     font-size: 1.2rem;
-    bottom: 0%;
+    bottom: 0;
     left: 0%;
     width: 100%;
-  
+
 }
+
 
 
 
@@ -550,25 +588,21 @@ footer article .fa{
 }
 
 
-/*----------------traitement du formulaire inscription fichier register............*/
-
-/*reglage du titre*/
-.registertitre{
-    text-align: left;
-}
-
 /*gestion du formulaire inscription (fichier register)*/
 
-.formregister{
+
+.formregister {
     background-color: rgba(53, 52, 52, 0.43);
-    padding-top: 10rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     padding-left: 1rem;
     max-width: 60rem;
     border-color: #8c2525;
     border-radius: 10px 10px 10px 10px;
     border-style: solid;
+    padding-right: 5rem;
+    line-height: 5rem;
 }
-
 
 .submitregister{
     background-color: #8c2525;
@@ -586,13 +620,15 @@ footer article .fa{
     .registertitre{
     text-align: center;
     }
+
+
 /*-------------------------------------------------------------*/
 
 /*Requètes media pour la version pc*/
 @media screen and (min-width: 350px){
 
     footer{
-        padding: 6.5rem 2rem 8rem 2rem;
+            padding: 0rem 2rem 4rem 2rem;
     }
 }
 
@@ -600,44 +636,43 @@ footer article .fa{
 @media screen and (min-width: 750px){
 
 
-        /*nav du header */
-        ul{
-            display: inline-block;
-        }
+    /*nav du header */
+    ul{
+        display: inline-block;
+    }
 
-        li{
-            display: inline-block;
-            text-align: center;
-            font-weight: bold;
-        font-size: 2rem;
+    li{
+        display: inline-block;
+        text-align: center;
+        font-weight: bold;
+    font-size: 2rem;
 
-        }
+    }
 
-        #burgerBtn{
-            display: none;
-        }
-
-
-        nav{
-            margin-top: -7rem;
-        }
-
-        /*modification du formulaire login version pc*/
-        .formconnection {
-        background-color: rgba(53, 52, 52, 0.43);
-     
-        padding-top: 10rem;
-        padding-left: 6rem;
-        max-width: 60rem;
-        border-color: #8c2525;
-        border-radius: 10px 10px 10px 10px;
-        border-style: solid;
-       
-        }
+    #burgerBtn{
+        display: none;
+    }
 
 
+    nav{
+        margin-top: -7rem;
+    }
 
-        /*reglage du positionnement du titre en format tablette*/
+    /*modification du formulaire login version pc*/
+    .formconnection {
+    background-color: rgba(53, 52, 52, 0.43);
+ 
+    padding-top: 10rem;
+    padding-left: 6rem;
+    max-width: 60rem;
+    border-color: #8c2525;
+    border-radius: 10px 10px 10px 10px;
+    border-style: solid;
+   
+    }
+
+
+     /*reglage du positionnement du titre en format tablette*/
         .registertitre{
         text-align: center;
         }
@@ -646,9 +681,30 @@ footer article .fa{
         margin-left: 35%;
         margin-right: 11%;
     }
-    
 
-    /*modification des tailles des icones du footer*/
+    /*configurer les articles*/
+article{
+    /*aligner les articles sur une ligne*/
+   display: inline-block;
+
+    vertical-align: top; 
+
+    /*réduire la taille des articles*/
+    width: 27.34%;
+
+
+    /*Ajouter une marge extérieure à droite*/
+    margin-right: 1.5rem;
+
+    /*Bloquer les enfants à l'intérieure*/
+    position: relative;
+
+    line-height: 1.5rem;
+   
+
+    }
+
+        /*modification des tailles des icones du footer*/
     footer article:nth-child(1) a {
     display: inline-block;
     position: relative;
@@ -665,9 +721,77 @@ footer article .fa{
     h3{
         color: white;
         font-size: 2rem;
+
+    color: white;
+    font-size: 2rem;
+    padding: 4rem;
+    }
+    
+
+
+   #sidebar, .test{
+    display: block;
+     /*line-height: 3.5rem;*/
+     /*line-height: 6.9rem;*/
+
+}
+
+
+
+}
+/*
+@media screen and (min-width: 760px){
+
+        #sidebar, .test {
+    display: block;
+   
+    line-height: 7rem;
+}
+
+}
+
+
+@media screen and (min-width: 765px){
+
+        #sidebar, .test {
+    display: block;
+   
+    line-height: 6.8rem;
+}
+
+}
+
+
+@media screen and (min-width: 773px){
+
+        #sidebar, .test {
+    display: block;
+   
+    line-height: 6.6rem;
+}
+
+}
+
+@media screen and (min-width: 774px){
+
+    #sidebar, .test {
+    display: block;
+    line-height: 6.4rem;
     }
 
 }
+
+
+@media screen and (min-width: 779px){
+
+    #sidebar, .test {
+    display: block;
+    line-height: 6.4rem;
+    }
+
+}
+
+*/
 
 /*-------------------------------------------------------------------------------*/
 
@@ -678,13 +802,13 @@ footer article .fa{
 
 #sidebar, .test{
     display: block;
-     line-height: 7rem;
+         line-height: 6.5rem;
 
 }
 
 #sidebar {
     background-color: #8c2525;
-    width: 29rem;
+    width: 26rem;
     display: inline-block;
     vertical-align: top;
     float: left;
@@ -695,11 +819,9 @@ footer article .fa{
     
 }
 
-
-  .registertitre{
+.registertitre{
     text-align: center;
     }
-
 
 
 
@@ -752,17 +874,22 @@ form input, form textarea {
 
 .form-message {
   
-    width: 30%;
-   
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    margin-bottom: 23rem;
+   
 }
 
 .form-message input, .form-message textarea {
     vertical-align: middle;
     height: 30px;
     width: calc(100% - 90px);
+
+        width: 50%;
+    padding-bottom: 20rem;
+    text-align: center;
+    margin-bottom: 18rem;
 }
 
 .form-message input[type="submit"] {
@@ -777,4 +904,48 @@ main section:nth-child(1) article, footer article:nth-child(2), footer article {
         margin: 1rem;
     }
 
+
+    /*gestion de l'encadré pour les titres h2*/
+    h2 {
+    border: 3px #353434 ridge;
+    background-color: #353434;
+    color: white;
+    box-shadow: 6px 6px 0px black;
+    border-width: 0.5rem;
+    /* border-left-width: 3rem; */
+    white-space: pre-wrap;
+    /* width: 100%; */
+    margin-left: 34rem;
+    margin-right: 13rem;
+    }
+
 }
+
+
+@media screen and (min-width: 929px){
+/*gestion de la sidebar*/
+
+#sidebar, .test{
+    display: block;
+         line-height: 6rem;
+
+}
+
+}
+
+
+@media screen and (min-width: 1010px){
+/*gestion de la sidebar*/
+
+#sidebar, .test{
+    display: block;
+         line-height: 5.5rem;
+
+}
+
+}
+
+ /*-------------------------------------------------------------------------------*/
+
+
+

@@ -1,29 +1,45 @@
-
 #tableau {
     width: 100%;
-    height: 50rem;
+    height: 40rem;
     overflow-y: scroll;
 }
 
 a {
-	color: black;
+  color: black;
 }
 
 a:hover{
-	color: #505050;
-	text-decoration: none;
+  color: #505050;
+  text-decoration: none;
+}
+
+#sectionnage h2{
+  color: black;
+  font-weight: bold;
+  font-family: 'Aref Ruqaa', serif;
+}
+
+.stats {
+      padding-top: 9rem;
+      color: black;
+      font-family: 'Aref Ruqaa', serif;
+      font-weight: bold;
+}
+
+#sectionnage h2{
+  text-align: center;
 }
 
 h2{
-	color: #9aa7a9;
+  color: #9aa7a9;
     font-weight: bold;
-
     padding-top: 1.2rem;
     margin-left: 2rem;
     margin-bottom: 4rem;
-
-
 }
+
+
+
 
 .fa-home{
     font-size: 3rem;
@@ -31,54 +47,66 @@ h2{
 }
 
 th, td{
-	border:  1px solid black;
-	    text-align: center;
+      border:  1px solid black;
+      text-align: center;
+      padding: 0.5rem;
+      font-family: 'Aref Ruqaa', serif;
+
 }
+
 th{
-	background-color: rgb(77, 102, 123);
+  background-color: rgb(77, 102, 123);
     color: white;
     font-size: 2rem;
 }
 
 .myButton {
-	    border-radius: 7px;
-	    color: black;
-	    padding: 1.5rem;
+      border-radius: 7px;
+      color: black;
+      padding: 1.5rem;
 
 
 
 }
 
+
 .myButton:hover {
-	color: #505050;
-	text-decoration: none;
+  color: #505050;
+  text-decoration: none;
 }
 
 button {
-  		border-radius: 7px;
-  		padding: 1rem;
+      border-radius: 7px;
+      padding: 1rem;
+      font-family: 'Nova Script', cursive;
       display: block;
       margin: auto;
-  		font-family: 'Nova Script', cursive;
+      margin-top: 5rem;
 }
 
 .table{
-	 	border: groove #c1c1c1;
-	    text-align: center;
-	    margin: auto;
-	    width: 70%;
+      border: groove #c1c1c1;
+      text-align: center;
+      margin-left: 50%;
+      width: 70%;
 }
 
 #appContent{
-	margin-top: 8rem;
+  margin-top: 8rem;
 }
 
 #sectionnage{
-	margin-top: 16rem;
+  margin-top: 16rem;
+}
+
+table{
+  transform: translate(-50% );
+    margin-left: 50%;
+    margin-top: 2rem;
 }
 
 form {
-    width: 80%;
+    
     margin: 0 auto;
 }
 
@@ -110,25 +138,37 @@ input[type="file"] {
     display: initial;
 }
 
+input[type='submit'] {
+      border-radius: 7px;
+      padding: 0.7rem;
+      font-family: 'Nova Script', cursive;
+      display: block;
+      margin: auto;
+}
+
 #userButton {
-	text-align: center;
+  text-align: center;
 }
 
 #inscrire{
   margin-left: 50%;
-	transform: translate(-50%,-50%);
-	margin-top: 1.5rem;
-	border-radius: 7px;
+  transform: translate(-50%,-50%);
+  margin-top: 1.5rem;
+  border-radius: 7px;
     color: black;
     padding: 0.6rem;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-  }
+.boutton{
+   margin-left: 31%;
+   padding: 0.5rem;
+
+}  
 
 .col-lg-8 {
-	margin-left: 23rem;
+  margin-left: 23rem;
 }
 #imgavatar{
   width: 20%;
@@ -149,7 +189,7 @@ text-align: center;
 }
 
 @media screen and (max-width: 800px) {
-	 .nav .navbar-nav {
-	 	display: none;
-	}
+   .nav .navbar-nav {
+    display: none;
+  }
 }

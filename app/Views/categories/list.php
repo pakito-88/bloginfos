@@ -2,34 +2,37 @@
 
 <?php $this->start('main_content');?>
 
-<section id="sectionnage"></section>
+	<section id="sectionnage">
 
-<ul>
-	<?php foreach ($categoriesList as $category) : ?>
+			<h2>Liste des catégories</h2>
+	
+	</section>
+<section id="tableau">
+	<table>
 
-	<li><a href="<?php echo $this->url('see_category', array('id'=>$category['id']))?>"><?php echo $category['name'] ?></li>
+		<tr>
+			<th>Nom</th>
+			<th>Actions</th>
+			
+		</tr>
 
-	<?php endforeach; ?>
-</ul>
+	<?php
+		foreach ($categoriesList as $category) :
+		?>
+		<tr>
+			<td><?php echo $category['name'] ?></td>
 
-<section></section>
+			<td>
+				<a href="<?php echo $this->url('delete_category', array('id'=>$category['id'])) ?>"><i class="fa fa-trash" aria-hidden="true"></i></a> / 
+				<a href="<?php echo $this->url('update_category', array('id'=>$category['id'])) ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+			</td>
 
-
-<h1>CATEGORIE</h1>
-<table>
-
-	<tr>
-		<th>pseudo</th>
-		<th>email</th>
-		<th>password</th>
-		<th>sexe</th>
-		<th>status</th>
-		<th>avatar</th>
-		<th>Actions</th>
-	</tr>
-
-
-
-</table>
+		</tr>
+		<?php endforeach; ?>
+	</table>
+</section>
+<section>
+	<button><a href="<?php echo $this->url('add_category')?>">Ajouter une catégorie</a></button>
+</section>
 
 <?php $this->stop('main_content');?>

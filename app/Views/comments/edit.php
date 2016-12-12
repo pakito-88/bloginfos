@@ -1,10 +1,10 @@
-
-
 <?php $this->layout('layoutBo', ['title' => 'Ajouter ou modifier un commentaire']); ?>
 
 <?php $this->start('main_content'); ?>
 
-<section id="sectionnage"></section>
+<section id="sectionnage"> 
+	<h2>Ajout et/ou modification de commentaire</h2>
+</section>
 
 <form method="POST">
 

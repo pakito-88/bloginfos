@@ -25,4 +25,17 @@ class ArticlesModel extends Model
 
 	}
 
+	public function lastArticleReleasedByCategory($idCategory){
+		$query = " SELECT * FROM articles"
+		." WHERE id_category=".$idCategory	
+		." AND creation_date = (SELECT max(creation_date) FROM articles WHERE id_category=".$idCategory." )";
+
+		$stmt = $this->dbh->query($query);
+
+		$stmt->execute();
+
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+	}
+
 }

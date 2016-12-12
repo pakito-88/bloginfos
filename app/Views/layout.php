@@ -40,16 +40,16 @@
 					$logout=  $this->url('logout');
 
 					if($w_user['status']=='user'){
-						echo '<li><a href="'.$register.'">Profil</a></li>';
-						echo '<li><a href="'.$logout.'">Deconnexion</a></li>';
+						echo '<li class="droite"><a href="'.$register.'">Profil</a></li>';
+						echo '<li class="droite"><a href="'.$logout.'">Deconnexion</a></li>';
 					}
 					if(empty($w_user)){
-						echo '<li><a href="'.$connexion.'">Connexion</a></li>';
+						echo '<li class="droite" ><a href="'.$connexion.'">Connexion</a></li>';
 					}
 	
 					if($w_user['status']=='admin'){
-						echo '<li><a href="'.$logout.'">Deconnexion</a></li>';
-						echo '<li><a href="'.$backOffice.'">BackOffice</a></li>';
+						echo '<li class="droite"><a href="'.$logout.'">Deconnexion</a></li>';
+						echo '<li class="droite"><a href="'.$backOffice.'">BackOffice</a></li>';
 						}
 					?>
 			
@@ -59,20 +59,21 @@
 			<i class="fa fa-bars" aria-hidden="true" id="burgerBtn"></i> 
 		</nav>
 		
-
-		<!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
-
 	</header>
+	<main>
+	
+<!-- ici on supprime l'affichage du titre Acceuil de la page home -->
 
-<h2> <?php echo $this->e($title); ?> </h2>
+		<?php 
+		if($this->e($title)!='Accueil'){ 
+			echo '<h2>'.$this->e($title).'</h2>';}?> 
 
 		<section>
-
 			<?= $this->section('main_content') ?>
 			<?php $fmsg->display(); ?> 
 		</section>
 
-
+	</main>
 	<footer>
 		<section class="maxSiteWidth">
 			

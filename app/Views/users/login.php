@@ -1,10 +1,9 @@
-<?php $this->layout('layout', ['title' => "Connection" ]); ?>
+<?php $this->layout('layout', ['title' => "Connectez-vous à Bloginfos" ]); ?>
 
 <?php $this->start('main_content'); ?>
 
-<h2>Connectez-vous à Bloginfos</h2>
+<form class="formregister" action="<?php $this->url('login') ?>" method="POST">
 
-<form action="<?php $this->url('login') ?>" method="POST">
 	<p>
 		<label for="pseudo">
 			Pseudo :

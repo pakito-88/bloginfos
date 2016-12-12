@@ -28,9 +28,9 @@ if($w_user['status']=='admin'){
 
 <?php $this->start('main_content'); ?>
 
-<h2><?php if(!$w_user): ?>Inscription d'un utilisateur<?php else: ?>Votre profil<?php endif; ?></h2>
+<h3 class="registertitre" ><?php if(!$w_user): ?>Inscription d'un utilisateur<?php else: ?>Votre profil<?php endif; ?></h3>
 
-<form action="<?php $this->url('register'); ?>" method="POST" enctype="multipart/form-data">
+<form  class="formregister" action="<?php $this->url('register'); ?>" method="POST" enctype="multipart/form-data">
 	<!-- pseudo, email, password, sexe, avatar -->
 	<p>
 		<label for="pseudo">Pseudo :</label>

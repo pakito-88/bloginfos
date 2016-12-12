@@ -5,6 +5,7 @@ namespace Controller;
 use W\Controller\Controller;
 use Model\ArticlesModel;
 use Model\CategoriesModel;
+use Model\CommentsModel;
 use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\ValidationException;
 
@@ -69,15 +70,21 @@ class ArticlesController extends BaseController
 						->alnum()
 						->setName('Auteur'),
 
-					'id_category' => v::in(array('1', '2', '3', '4', '5', '6')),
 
+					'image' => v::optional(
+						v::image()
+						->size('0', '1MB')
+						->uploaded()
+					)
 				);
 
+	
 				$trads = array(
 					'alnum' => '{{name}} ne doit contenir que des caractères alphanumériques',
 					'length' => '{{name}} doit avoir une longueur minimum de {{minValue}} caractères',
-					'noWhitespace' => '{{name}} ne doit pas contenir d\'espace vide',
-					'in' => '{{name}} doit être compris dans {{haystack}}',
+					'size' => '{{name}} doit avoir une taille comprise entre {{minSize}} et {{maxSize}}',
+					'upload' => '{{name}} n\'a pas été uploadé correctement',
+					'image' => '{{name}} doit être une image',
 					// 'ArticleNotExists' => '{{name}} existe déjà'
 				);
 
@@ -106,12 +113,35 @@ class ArticlesController extends BaseController
 						'author' => $_POST['author'],
 						'id_category' => $_POST['id_category'],
 						'creation_date' => date('Y-m-d H:i:s'),
-						'id_user' => 1,
+						'id_user' => 1
 					);
 
 				if(! $this->getFlashMessenger()->hasErrors()) {
 
 					$idArticle = $_POST['id'];
+
+					// on déplace l'image vers le dossier avatars
+
+					if( !empty($_FILES['image']['tmp_name'])) {
+				
+						$datas['image'] = $_FILES['image']['tmp_name'];
+
+					} else {
+					
+						$datas['image'] = '';
+					}
+				
+					if( ! empty($_FILES['image']['tmp_name'])) {
+						$initialImagePath = $_FILES['image']['tmp_name'];
+						$imageNewName = md5(time() . uniqid());
+
+						$targetPath = realpath('assets/uploads/articles/');
+						
+						move_uploaded_file($initialImagePath, $targetPath.'/'.$imageNewName);
+
+						// on met à jour le nouveau nom de l'avatar dans $datas
+						$datas['image'] = $imageNewName;
+					}
 
 					if ($idArticle != null) {
 
@@ -164,7 +194,35 @@ class ArticlesController extends BaseController
 		$categoriesModel = new CategoriesModel();
 		$articlesSidebar = $categoriesModel->searchArticlesWithCategory($article['id_category']);
 
-		$this->show('articles/see', array('article' => $article, 'articlesSidebar' => $articlesSidebar));
+			/**
+		 * [$commentsModel Méthode qui permet d'afficher les commentaires d'un article ]
+		 * @var CommentsModel on instancie un nouveau model
+		 */
+		$commentsModel = new CommentsModel();
+		$commentsList = $commentsModel -> showCommentInArticle($id);
+
+		$currentUser = $this->getUser();
+
+		// On effectue les vérifications nécessaires pour insérer un commentaire à un article
+		// 1) S'il y a un utilisateur connecté 
+		if ($currentUser){
+			if (!empty($_POST)) {	
+				
+				$comment=$_POST['content'];			
+				$datas = array(
+					'content' => $comment, 
+					'id_user' => $currentUser['id'], 
+					'id_article' => $id, 
+					'creation_date' => date('Y-m-d H:i:s'), 
+					'modification_date'=> date('Y-m-d H:i:s')
+				);	
+				$comment=$commentsModel->insert($datas);
+			}	
+		}else{
+			$this->getFlashMessenger()->error('Vous devez être connecté');
+		}	
+
+		$this->show('articles/see', array('article' => $article, 'articlesSidebar' => $articlesSidebar, 'commentsList'=>$commentsList));
 	}
 
 
@@ -181,27 +239,5 @@ class ArticlesController extends BaseController
 	}
 
 
-	public function updateArticle($id) {
-
-		$ArticlesModel = new ArticlesModel();
-		$article = $ArticlesModel->find($id);
-		var_dump($article);
-
-			$datas = array(
-				'title' => $article['title'],
-				'content' => $article['content'],
-				'author' => $article['author'],
-				'id_category' => $article['id_category'],
-				'creation_date' => $article['creation_date'],
-				'id_user' => $article['id_user'],
-				);
-
-		$updatedArticle = $ArticlesModel->update($datas, $id);
-
-		
-
-		$this->show('articles/updatedArticle', array('updatedArticle' => $updatedArticle));
-
-		}
 
 }
