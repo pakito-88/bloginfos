@@ -204,7 +204,7 @@ public function listUsers() {
 				// AuthentificationModel pour rester cohérent avec le framework
 				
 				$auth = new AuthentificationModel(); 
-	var_dump($datas['password']);			
+			
 				$datas['password'] = $auth->hashPassword($datas['password']);
 				
 				// on déplace l'avatar vers le dossier avatars
@@ -222,12 +222,9 @@ public function listUsers() {
 				} else {
 					$datas['avatar'] = 'default.png';
 				}
-				
-				
-				
-				
+								
 				unset($datas['send']);
-var_dump($datas);
+
 				if($user) {
 					// UPDATE utilisateurs SET ... WHERE id = ...
 					if( empty($datas['password'])){
@@ -246,7 +243,7 @@ var_dump($datas);
 					$auth->logUserIn($userInfos);
 				}
 				
-				//$this->redirectToRoute('default_home');
+				$this->redirectToRoute('users_list');
 			}
 		}
 		$this->show('users/update',  array('datas' => $datas));
@@ -257,7 +254,6 @@ var_dump($datas);
 	public function register() {
 
 		$UserModel = new UserModel();
-
 
 		$user = $this->getUser();
 		

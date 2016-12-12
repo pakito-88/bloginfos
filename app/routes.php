@@ -14,6 +14,7 @@
 
 		//modifier ajuter un w_user
 		['GET|POST', '/register', 'User#register', 'register'],
+		['GET|POST', '/registerBo', 'User#register', 'registerBo'],
 		
 		//admin ajout ou modif user
 		['GET|POST', '/users-admin/edit', 'User#editUser', 'add_User'],
@@ -24,7 +25,7 @@
 
 
 		// Route pour afficher la liste des commentaires
-		['GET', '/comments/list', 'Comment#CommentsList', 'comments_list'],
+		['GET', '/comments', 'Comment#CommentsList', 'comments_list'],
 		
 		// Route pour ajouter les commentaires 
 		['GET|POST', '/comments/edit', 'Comment#editComments', 'add_comment'],

@@ -87,7 +87,7 @@
                     </a>
                     <!-- dropdown user-->
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="<?php echo $this->url('register'); ?>"><i class="fa fa-user fa-fw"></i>Profil de l'utilisateur</a>
+                        <li><a href="<?php echo $this->url('registerBo'); ?>"><i class="fa fa-user fa-fw"></i>Profil de l'utilisateur</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?php echo $this->url('logout'); ?>"><i class="fa fa-sign-out fa-fw"></i>Déconnexion</a>
@@ -119,6 +119,7 @@
 
 
         <section>
+            <?php $fmsg->display(); ?>
             <?= $this->section('main_content') ?>
         </section>
 
@@ -126,20 +127,14 @@
 
       <footer id="footer">Copyright © 2016 BlogInfos</footer>
 
-
-   
-
-
     <!-- Core Scripts - Include with every page -->
     <script src="assets/plugins/jquery-1.10.2.js"></script>
     <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/plugins/morris/morris.js"></script>
-    <script src="assets/scripts/dashboard-demo.js"></script>
 
 </body>
 

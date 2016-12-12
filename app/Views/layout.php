@@ -20,7 +20,7 @@
 		<h1><a href="<?php echo $this->url('default_home')?>"> Bloginfos </a>
 
 			<br>
-			<span>l'actualité en continu <a href="http://localhost/bloginfos/public/"><i class="fa fa-bookmark" aria-hidden="true"></i></a></span>
+			<span>l'actualité en continu <a href="<?php echo $this->url('default_home')?>"><i class="fa fa-bookmark" aria-hidden="true"></i></a></span>
 
 		</h1>
 		<nav>
@@ -33,8 +33,26 @@
 
 
 				<?php endforeach; ?>
-				<li><a href="<?php echo $this->url('login'); ?>">Connexion</a></li>
-				<li><a href="<?php echo $this->url('statistique'); ?>">BackOffice</a></li>
+				<?php  
+					$register=  $this->url('register'); 
+					$backOffice=  $this->url('statistique'); 
+					$connexion=  $this->url('login');
+					$logout=  $this->url('logout');
+
+					if($w_user['status']=='user'){
+						echo '<li><a href="'.$register.'">Profil</a></li>';
+						echo '<li><a href="'.$logout.'">Deconnexion</a></li>';
+					}
+					if(empty($w_user)){
+						echo '<li><a href="'.$connexion.'">Connexion</a></li>';
+					}
+	
+					if($w_user['status']=='admin'){
+						echo '<li><a href="'.$logout.'">Deconnexion</a></li>';
+						echo '<li><a href="'.$backOffice.'">BackOffice</a></li>';
+						}
+					?>
+			
 
 			</ul>
 
@@ -51,7 +69,7 @@
 		<section>
 
 			<?= $this->section('main_content') ?>
-			<!-- <?php //$fmsg->display(); ?> -->
+			<?php $fmsg->display(); ?> 
 		</section>
 
 

@@ -18,7 +18,13 @@ function isUserAdmin($data) {
 
 ?>
 
-<?php $this->layout('layout', ['title' => $w_user ? 'Modifiez votre profil' :'Inscrivez-vous !']) ?>
+<?php 
+if($w_user['status']=='admin'){
+	$this->layout('layoutBo', ['title' => $w_user ? 'Modifiez votre profil' :'Inscrivez-vous !']); 
+}else{
+	$this->layout('layout', ['title' => $w_user ? 'Modifiez votre profil' :'Inscrivez-vous !']);
+	}
+?>
 
 <?php $this->start('main_content'); ?>
 

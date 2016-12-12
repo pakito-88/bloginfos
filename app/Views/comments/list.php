@@ -4,7 +4,7 @@
 
 <section id="sectionnage"></section>
 
-
+<section id="tableau">
 <table>
 	
 	<tr>
@@ -52,5 +52,5 @@
 
 <button> <a href="<?php echo $this->url('add_comment') ;?> "> Ajouter un nouveau commentaire </a> </button>
 
-
+</section>
 <?php $this->stop('main_content'); ?>
