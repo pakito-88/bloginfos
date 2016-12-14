@@ -14,41 +14,29 @@
 		
 			 <aside >
 				
-					<form class="forminscription" action="" method="post" target="">
-				<p>Ajouter un article : </p>
-				<p> <i class="fa fa-wrench" aria-hidden="true"></i></p>
-				 <p>
+				<form class="forminscription" action="" method="post" target="">
+						<p>Ajouter un article : </p>
+					<i class="fa fa-wrench" aria-hidden="true"></i>
 				 	<input class="inputinscription" type="text" style="" name="email">
 
-				 	<button>
-				 	
-				 	<a href="<?php echo $this->url('login'); ?>" > ajouter</a>
-
+				 	<button>	
+				 	<a href="<?php echo $this->url('add_articles'); ?>" > ajouter</a>
 				 	</button>
 
-				 </p>
-				 <input type="submit" value="Validez">
-
-				 	</form>
+				 </form>
 
 				 	<br>
 
 				<form class="forminscription" action="" method="post" target="">
-				<p>Pour commentez </p>
-				 <p>Inscrivez-vous !</p>
-				 <p>
+					<p>Pour commentez </p>
+					 <p>Inscrivez-vous !</p>
+					 <i class="fa fa-commenting-o" aria-hidden="true"></i>
 				 	<input class="inputinscription" type="text" style="" name="email">
-				 	<button>
-				 	
+				 	<button>	
 				 	<a href="<?php echo $this->url('login'); ?>" > Inscription</a>
-
 				 	</button>
 
-				 </p>
-
-				<input type="submit" value="Validez"> 
-
-				 	</form>
+				 </form>
 
 
 			</aside> 

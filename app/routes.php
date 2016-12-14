@@ -37,6 +37,15 @@
 		// Route pour supprimer un commentaire
 		['GET|POST', '/comments/delete/[i:id]', 'Comment#deleteComment', 'delete_comment'],
 
+
+
+		
+
+		// Route pour afficher en Ajax le dernier commentaire posté 
+		['GET', '/newcomments/[i:idArticle]/[i:idComment]','Articles#newComments', 'new_comment'],
+
+
+
 		['GET', '/articles-admin', 'Articles#articlesList', 'articles_list'],
 		
 		['GET|POST', '/articles-admin/edit/[i:id]', 'Articles#editArticles', 'edit_articles'],

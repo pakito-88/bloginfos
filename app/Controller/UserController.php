@@ -18,6 +18,9 @@ public function listUsers() {
 		
 		$usersList = $usersModel->findAll();
 		
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+		}
 		
 		// la ligne suivante affiche la vue présente dans app/Views/users/list.php
 		// et y injecte le tableau $usersList sous un nouveau nom $listUsers
@@ -246,6 +249,11 @@ public function listUsers() {
 				$this->redirectToRoute('users_list');
 			}
 		}
+
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+		}
+		
 		$this->show('users/update',  array('datas' => $datas));
 
 	}

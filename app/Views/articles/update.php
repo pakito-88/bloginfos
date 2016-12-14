@@ -1,11 +1,18 @@
-<?php $this->layout('layoutBo', ['title' => 'Ajout ou modification']) ?>
+<?php if ($w_user['status'] == 'admin') {
+
+	$this->layout('layoutBo', ['title' => 'Ajout ou modification']); 
+
+} else {
+
+	$this->layout('layout', ['title' => 'Ajout ou modification']);
+	
+} ?>
 
 <?php $this->start('main_content');?>
 
 <section id="sectionnage"> 
-	<h2>Ajout et/ou modification d'article</h2>
+	
 </section>
-
 
 <form method="post" enctype="multipart/form-data">
 	

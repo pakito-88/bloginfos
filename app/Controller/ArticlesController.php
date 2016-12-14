@@ -22,6 +22,10 @@ class ArticlesController extends BaseController
 
 		$categoriesArticle = $articlesModel->searchCategoryWithArticle();
 
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+			}
+			
 		$this->show(
 			'articles/list', 
 			array(
@@ -78,6 +82,8 @@ class ArticlesController extends BaseController
 					)
 				);
 
+			$datas = $_POST;
+
 	
 				$trads = array(
 					'alnum' => '{{name}} ne doit contenir que des caractères alphanumériques',
@@ -93,7 +99,7 @@ class ArticlesController extends BaseController
 					// La méthode assert renvoie une exception de type NestedValidationException qui nous permet de récupérer le ou les messages d'erreur en cas d'erreurs
 					try {
 						// On essaie de valider la donnée si une exception se produit, on exécute le bloc catch
-						$validator->check(isset($_POST[$field]) ? $_POST[$field] : '');
+						$validator->check(isset($datas[$field]) ? $datas[$field] : '');
 
 					} catch(ValidationException $ex) {
 						// on récupère l'exception qui signifie qu'il y a eu une erreur et on ajoute un message d'erreur avec l'autre bibliotèque
@@ -174,6 +180,10 @@ class ArticlesController extends BaseController
 
 		}
 
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+		}
+
 		$this->show('articles/update', array('idArticle'=> $idArticle, 'datas' => $datas, 'categoriesList' => $categoriesList));
 
 	}
@@ -192,8 +202,8 @@ class ArticlesController extends BaseController
 		$article = $ArticlesModel->find($id);
 
 		$categoriesModel = new CategoriesModel();
-		$articlesSidebar = $categoriesModel->searchArticlesWithCategory($article['id_category']);
-
+		$articlesSidebar = $categoriesModel->showLastSixArticlesInSidebar($article['id_category']);
+		
 			/**
 		 * [$commentsModel Méthode qui permet d'afficher les commentaires d'un article ]
 		 * @var CommentsModel on instancie un nouveau model
@@ -206,8 +216,8 @@ class ArticlesController extends BaseController
 		// On effectue les vérifications nécessaires pour insérer un commentaire à un article
 		// 1) S'il y a un utilisateur connecté 
 		if ($currentUser){
-			if (!empty($_POST)) {	
-				
+
+			if (!empty($_POST)) {
 				$comment=$_POST['content'];			
 				$datas = array(
 					'content' => $comment, 
@@ -217,11 +227,23 @@ class ArticlesController extends BaseController
 					'modification_date'=> date('Y-m-d H:i:s')
 				);	
 				$comment=$commentsModel->insert($datas);
-			}	
+
+				$articleDatas = array(
+					'title' => $_POST['title'],
+					'content' => $_POST['content'],
+					'author' => $_POST['author'],
+					'id_category' => $_POST['id_category'],
+					'creation_date' => date('Y-m-d H:i:s'),
+					'id_user' => $currentUser['id'],
+					'image' => $_FILES['image']
+					);
+				$newArticle = $ArticlesModel->insert($articleDatas);
+			}
+
 		}else{
 			$this->getFlashMessenger()->error('Vous devez être connecté');
 		}	
-
+		unset($_POST);
 		$this->show('articles/see', array('article' => $article, 'articlesSidebar' => $articlesSidebar, 'commentsList'=>$commentsList));
 	}
 
@@ -236,6 +258,14 @@ class ArticlesController extends BaseController
 		$this->redirectToRoute('articles_list');
  
 		$this->show('articles/deleteArticle', array('deletedArticle' => $deletedArticle));
+	}
+
+	public function newComments($idArticle, $idComment){
+		$commentsModel = new CommentsModel();
+		$commentsList = $commentsModel -> searchArticleWithCommentInfos($idArticle, $idComment);
+
+		$this->show('articles/newcomments', array('commentsList'=>$commentsList));
+
 	}
 
 

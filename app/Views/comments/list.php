@@ -22,10 +22,6 @@
 			<th> Actions </th>
 		</tr>
 
-	</table>
-
-	<table>
-
 		<?php foreach ($commentBindArticles as $commentBindArticle) :?>
 		<tr>
 			<td><?php echo $commentBindArticle['id']; ?></td>

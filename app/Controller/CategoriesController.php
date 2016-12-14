@@ -15,20 +15,25 @@ class CategoriesController extends BaseController
 
 		$categoriesList = $categoriesModel->findAll();
 
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+			}
+
 		$this->show('categories/list', array('categoriesList' => $categoriesList));
 	}
 
 	/**
-	* Cette méthode permet de voir le contenu d'un article
+	* Cette méthode permet de voir le contenu d'une catégorie
 	* param : $id, l'id de l'article dont je cherche à voir le contenu
 	*/
 	public function seeCategory($id) {
 
 		$CategoriesModel = new CategoriesModel();
 		$category = $CategoriesModel->find($id);
-		$articles = $CategoriesModel->searchArticlesWithCategory($id);
+		$articles = $CategoriesModel->showLastSixArticlesInSidebar($id);
+		$articlesList = $CategoriesModel->showRestOfArticlesWhenScroll($id);
 
-		$this->show('categories/see', array('category' => $category, 'articles' => $articles));
+		$this->show('categories/see', array('category' => $category, 'articles' => $articles, 'articlesList'=>$articlesList));
 	}
 
 
@@ -120,6 +125,10 @@ class CategoriesController extends BaseController
 				);	
 			}
 
+		}
+
+		if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
 		}
 
 		$this->show('categories/update', array('idCategory'=> $idCategory, 'datas' => $datas));

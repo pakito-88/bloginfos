@@ -49,7 +49,10 @@ class CommentController extends BaseController
 			$articlesModel = new ArticlesModel();
 			$articlesList = $articlesModel -> findAll();
 
-		
+			if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+			}
+			
 			$this->show('comments/list', 
 				array(
 					'commentsList' => $commentsList,
@@ -186,7 +189,12 @@ class CommentController extends BaseController
 							'modification_date'=> $comment['modification_date']
 						);	
 					}	
-			} // FIN DU IF $_POST					
+			} // FIN DU IF $_POST	
+
+			if ($this->getUser()['status'] !='admin') {
+			$this->redirectToRoute('default_home');
+			}
+
 			$this->show('comments/edit', array(
 				'idComment'=>$idComment, 
 				'datas' => $datas, 

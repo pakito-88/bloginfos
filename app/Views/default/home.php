@@ -19,17 +19,18 @@
 
 <section>
     
-<article class="lastArticleReleasedHommePage">    
+<article id="lastArticleReleasedHomePage">    
 <?php foreach ($categoriesListMenu as $category) : ?>
-<div class="lastArticleReleasedByCategoryHommePage">
+<div id="lastArticleReleasedByCategoryHomePage">
    <h3> <?php echo $category['name'] ?> </h3>
 
 <?php     
     $lastArticlesReleased = $articlesModel->lastArticleReleasedByCategory($category['id']);
     foreach ($lastArticlesReleased as $lastArticleReleased) : ?>
-      <p><img src="#"></p> // ajouter code img this-> machin
+      <img src="<?php echo $this->assetUrl('uploads/articles/').$lastArticleReleased['image'] ?>" alt=""> 
       <h4><?php   echo( $lastArticleReleased['title']); ?> </h4>
-      <?php   echo( $lastArticleReleased['content']);  ?>
+      <?php   echo (substr($lastArticleReleased['content'], 0,500));  ?>
+      <a href="<?php echo $this->url('see_article', array('id'=>$lastArticleReleased['id']))?>">Lire la suite...</a>
      <?php endforeach; ?> 
 </div> 
 <?php endforeach ; ?>

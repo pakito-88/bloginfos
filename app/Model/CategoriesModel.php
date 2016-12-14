@@ -29,4 +29,28 @@ class CategoriesModel extends Model
 
 	}
 
+	public function showLastSixArticlesInSidebar($idCategory){
+		$query = "SELECT articles.* FROM $this->table JOIN articles ON $this->table.id = articles.id_category WHERE articles.id_category = :id_category ORDER BY creation_date DESC LIMIT 6 OFFSET 0 ";
+
+		$stmt = $this->dbh->prepare($query);
+
+		$stmt->bindParam(':id_category', $idCategory);
+
+		$stmt->execute();
+
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
+	public function showRestOfArticlesWhenScroll($idCategory){
+	$query = "SELECT articles.* FROM $this->table JOIN articles ON $this->table.id = articles.id_category WHERE articles.id_category = :id_category ORDER BY creation_date DESC LIMIT 6 OFFSET 7";
+
+		$stmt = $this->dbh->prepare($query);
+
+		$stmt->bindParam(':id_category', $idCategory);
+
+		$stmt->execute();
+
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+	}
+
 }
